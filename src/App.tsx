@@ -2,6 +2,9 @@ import React from 'react';
 import styled from '@emotion/styled'
 import logo from './logo.svg';
 import './App.css';
+import { Components } from './Components/Components';
+
+
 
 const Button = styled.button`
   padding: 32px;
@@ -24,6 +27,7 @@ function App() {
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
         <Button/>
+        <Components name="竹内"/>
         <a
           className="App-link"
           href="https://reactjs.org"
