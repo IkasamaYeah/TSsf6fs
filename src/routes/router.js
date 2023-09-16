@@ -1,6 +1,6 @@
 import {createBrowserRouter} from "react-router-dom";
 import React from "react";
-import TopPage from "../TopPage";
+import TopPage from "../Pages/TopPage";
 import ErrorPage from "../Pages/ErrorPage"
 import {Layout} from "../Components/Layout/Leyout"
 
