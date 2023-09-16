@@ -1,4 +1,4 @@
-import Logo from "../../images/h_logo.png";
+import Logo from "./f_logo.png";
 import Twitter from "../../images/ballpython_1.png";
 import styled from "@emotion/styled"
 import { Link } from "react-router-dom";
