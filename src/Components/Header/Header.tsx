@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import {useState} from "react"
-import Logo from "../../images/h_logo.png"
+import Logo from "./h_logo.png"
 import styled from "@emotion/styled"
 import {Link} from "react-router-dom"
 import { css } from "@emotion/react"
@@ -135,6 +135,7 @@ const isShow = css`
 
 const StyledHeaderUl = styled.ul`
   display:flex;
+  padding-top: 15px;
 
   @media(max-width:900px){
     display: block;
