@@ -73,8 +73,9 @@ margin-bottom: 1vw;
 `
 
 const StyledButton = styled.button`
-  display: block;
-  margin: auto;
+  position: absolute;
+  bottom: 0;
+  left: 36%;
   width: 5vw;
   height: 2vw;
   font-size: 0.8vw;
@@ -133,23 +134,23 @@ function TopPage() {
         <StyledSubheading>
           <StyledTopH3>Characters</StyledTopH3>
           <StyledColumnP>キャラクターを一覧から選択し<br />通常技等のフレームデータを確認できます。<br />また、技名部分をクリックすることで<br />その技のヒットボックスの参照GIFを閲覧することも可能です。</StyledColumnP>
+          <Link to="/characters"><StyledButton>VIEW</StyledButton></Link>
         </StyledSubheading>
         <StyledSubheading>
           <StyledTopH3>FramesVS</StyledTopH3>
           <StyledColumnP>防御側キャラクターと攻撃側キャラクターを選択し<br />攻撃側の行動(立ち弱P等)を選択することで<br />不利フレームから確定する技を一覧表示させることができます。</StyledColumnP>
+          <Link to="/framesvs"><StyledButton>VIEW</StyledButton></Link>
         </StyledSubheading>
         <StyledSubheading>
           <StyledTopH3>Tier</StyledTopH3>
           <StyledColumnP>最新の情報を参考にTierランキングを表示します。</StyledColumnP>
+          <Link to="/tier"><StyledButton>VIEW</StyledButton></Link>
         </StyledSubheading>
         <StyledSubheading>
           <StyledTopH3>Tips</StyledTopH3>
           <StyledColumnP>SF6をプレイするにあたって<br />便利な情報等を掲載していくページです。</StyledColumnP>
+          <Link to="/tips"><StyledButton>VIEW</StyledButton></Link>
         </StyledSubheading>
-        <Link to="/characters"><StyledButton>VIEW</StyledButton></Link>
-        <Link to="/framesvs"><StyledButton>VIEW</StyledButton></Link>
-        <Link to="/tier"><StyledButton>VIEW</StyledButton></Link>
-        <Link to="/tips"><StyledButton>VIEW</StyledButton></Link>
       </StyledColumnWrapper>
     </StyledTopPage>
   );
