@@ -20,16 +20,37 @@ import keyCircle from '../CommandImages/circle-icon.png'
 import keyNutral from '../CommandImages/nutral-icon.png'
 import keyNext from '../CommandImages/key-next.png'
 
-export const zangiefDetails = [{
+export const zangiefDetails:{
+  name:string;
+  strongpoints:string[];
+  weakpoints:string[];
+  topImage:string;
+  p1Image:string;
+  p2Image:string;
+} = {
   name:"ZANGIEF",
   strongpoints:["aaaaa","bbbbb","ccccc"],
   weakpoints:["ddddd","eeeee","fffff"],
   topImage:zangiefImage,
   p1Image:p1Image,
   p2Image:p2Image,
-}]
+}
 
-export const zangiefMoves = [{
+export const zangiefMoves:{
+  [key:string]: string|string[]|number|number[],
+  type:string
+  commands:string[]
+  movesName:string
+  movesCondition:string
+  startup:any
+  active:any
+  recovery:any
+  hit:any
+  block:any
+  cancel:any
+  tips:string[]
+  hitboxImage:string 
+}[] = [{
   type:"通常技",
   commands:[lPunch],
   movesName:"立ち弱P(ブレーンチョップ)",

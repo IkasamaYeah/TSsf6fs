@@ -7,6 +7,7 @@ import Characters from "../Pages/Characters";
 import FramesVS from "../Pages/FramesVS";
 import Tier from "../Pages/Tier";
 import Tips from "../Pages/Tips";
+import { CharacterAbout } from "../Pages/CharacterAbout";
 
 export const router = createBrowserRouter([
   {
@@ -29,5 +30,8 @@ export const router = createBrowserRouter([
       },{
         path:"tips",
         element:<Tips/>
+      },{
+        path:"/about",
+        element:<CharacterAbout/>
       }]
   }])

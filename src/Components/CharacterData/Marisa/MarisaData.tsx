@@ -1,35 +1,56 @@
 import marisaImage from './marisa-top.png'
 import p1Image from './marisa-1p-image.png'
 import p2Image from './marisa-2p-image.png'
-import anyPunch from '../CommanImages/p-any-icon.png'
-import lPunch from '../CommanImages/p-l-icon.png'
-import mPunch from '../CommanImages/p-m-icon.png'
-import hPunch from '../CommanImages/p-h-icon.png'
-import anyKick from '../CommanImages/k-any-icon.png'
-import lKick from '../CommanImages/k-l-icon.png'
-import mKick from '../CommanImages/k-m-icon.png'
-import hKick from '../CommanImages/k-h-icon.png'
-import keyPlus from '../CommanImages/plus-icon.png'
-import keyDown from '../CommanImages/down-icon.png'
-import keyRight from '../CommanImages/right-icon.png'
-import keyLeft from '../CommanImages/left-icon.png'
-import keyDR from '../CommanImages/down-right-icon.png'
-import keyDL from '../CommanImages/down-left-icon.png'
-import keyNutral from '../CommanImages/nutral-icon.png'
-import keyNext from '../CommanImages/key-next.png'
-import keyOr from '../CommanImages/or-icon.png'
+import anyPunch from '../CommandImages/p-any-icon.png'
+import lPunch from '../CommandImages/p-l-icon.png'
+import mPunch from '../CommandImages/p-m-icon.png'
+import hPunch from '../CommandImages/p-h-icon.png'
+import anyKick from '../CommandImages/k-any-icon.png'
+import lKick from '../CommandImages/k-l-icon.png'
+import mKick from '../CommandImages/k-m-icon.png'
+import hKick from '../CommandImages/k-h-icon.png'
+import keyPlus from '../CommandImages/plus-icon.png'
+import keyDown from '../CommandImages/down-icon.png'
+import keyRight from '../CommandImages/right-icon.png'
+import keyLeft from '../CommandImages/left-icon.png'
+import keyDR from '../CommandImages/down-right-icon.png'
+import keyDL from '../CommandImages/down-left-icon.png'
+import keyNutral from '../CommandImages/nutral-icon.png'
+import keyNext from '../CommandImages/key-next.png'
+import keyOr from '../CommandImages/or-icon.png'
 
 
-export const marisaDetails = [{
+export const marisaDetails:{
+  name:string;
+  strongpoints:string[];
+  weakpoints:string[];
+  topImage:string;
+  p1Image:string;
+  p2Image:string;
+} = {
   name:"MARISA",
   strongpoints:["aaaaa","bbbbb","ccccc"],
   weakpoints:["ddddd","eeeee","fffff"],
   topImage:marisaImage,
   p1Image:p1Image,
   p2Image:p2Image,
-}]
+}
 
-export const marisaMoves = [{
+export const marisaMoves:{
+  [key:string]: string|string[]|number|number[],
+  type:string
+  commands:string[]
+  movesName:string
+  movesCondition:string
+  startup:any
+  active:any
+  recovery:any
+  hit:any
+  block:any
+  cancel:any
+  tips:string[]
+  hitboxImage:string 
+}[] = [{
   type:"通常技",
   commands:[lPunch],
   movesName:"立ち弱P(ライトパンチ)",

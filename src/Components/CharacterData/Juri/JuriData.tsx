@@ -31,23 +31,45 @@ import juriDownMKickHB from './downMKick.gif'
 import juriDownHPunchHB from './downHPunch.gif'
 import juriDownHKickHB from './downHKick.gif'
 
-export const juriDetails=[{
+
+export const juriDetails:{
+  name: string;
+  strongpoints: string[];
+  weakpoints: string[];
+  topImage: string;
+  p1Image: string;
+  p2Image: string;
+} = {
   name:"JURI",
   strongpoints:["・最高速クラスのドライブラッシュ","・リーチ・発生・持続に優れた通常技","・SA2風水エンジン使用時の択攻め"],
   weakpoints:["・風波ストック依存のコンボ火力","・弾キャラに対する対策","・SA2風水エンジンの難易度"],
   topImage:juriImage,
   p1Image:p1Image,
   p2Image:p2Image,
-}]
+}
 
-export const juriMoves =[{
+export const juriMoves:{
+  [key:string]: string|string[]|number|number[],
+  type:string
+  commands:string[]
+  movesName:string
+  movesCondition:string
+  startup:any
+  active:any
+  recovery:any
+  hit:any
+  block:any
+  cancel:any
+  tips:string[]
+  hitboxImage:string 
+}[]=[{
   type:"通常技",
   commands:[lPunch],
   movesName:"立ち弱P(首甲殺)",
   movesCondition:"",
   startup:4,
   active:"4-7",
-  recovery:7,
+  recovery:7, 
   hit:5,
   block:-2,
   cancel:"〇",
@@ -208,6 +230,7 @@ export const juriMoves =[{
   block:-3,
   cancel:"〇",
   tips:[""],
+  hitboxImage:"",
 }, {
   type:"特殊技",
   commands:[keyRight, keyPlus, mKick],
@@ -220,6 +243,7 @@ export const juriMoves =[{
   block:-3,
   cancel:"×",
   tips:["空振り時硬直2F増加"],
+  hitboxImage:"",
 }, {
   type:"特殊技",
   commands:[keyRight, keyPlus, hKick],
@@ -232,6 +256,7 @@ export const juriMoves =[{
   block:-4,
   cancel:"〇",
   tips:["空中ヒット時吹き飛びダウン"],
+  hitboxImage:"",
 }, {
   type:"特殊技",
   commands:[keyLeft, keyPlus, hKick],
@@ -244,6 +269,7 @@ export const juriMoves =[{
   block:-6,
   cancel:"〇",
   tips:["初段空中ヒット時吹き飛びダウン","2段目空中ヒット時叩きつけダウン"],
+  hitboxImage:"",
 }, {
   type:"特殊技",
   commands:[mPunch, keyNext, keyLeft, keyPlus, hPunch],
@@ -256,6 +282,7 @@ export const juriMoves =[{
   block:-3,
   cancel:"×",
   tips:[""],
+  hitboxImage:"",
 }, {
   type:"特殊技",
   commands:[keyNext, hPunch],
@@ -268,6 +295,7 @@ export const juriMoves =[{
   block:-16,
   cancel:"×",
   tips:[""],
+  hitboxImage:"",
 },{
   type:"必殺技",
   commands:[keyDown, keyDL, keyLeft, keyPlus, lKick],
@@ -280,6 +308,7 @@ export const juriMoves =[{
   block:-4,
   cancel:"SA3",
   tips:["8-13F相殺判定","10F目で風波ストックが1増加","空振り時硬直2F増加"],
+  hitboxImage:"",
 }, {
   type:"必殺技",
   commands:[keyDown, keyDL, keyLeft, keyPlus, mKick],
@@ -292,6 +321,7 @@ export const juriMoves =[{
   block:-6,
   cancel:"SA3",
   tips:["11-16相殺判定","10F目で風波ストックが1増加"],
+  hitboxImage:"",
 }, {
   type:"必殺技",
   commands:[keyDown, keyDL, keyLeft, keyPlus, hKick],
@@ -303,7 +333,8 @@ export const juriMoves =[{
   hit:"Down",
   block:-8,
   cancel:"SA3",
-  tips:["23-28F相殺判定","25F目で風波ストックが1増加"]
+  tips:["23-28F相殺判定","25F目で風波ストックが1増加"],
+  hitboxImage:"",
 }, {
   type:"必殺技",
   commands:[keyDown, keyDL, keyLeft, keyPlus, anyKick, anyKick],
@@ -316,6 +347,7 @@ export const juriMoves =[{
   block:-12,
   cancel:"SA2",
   tips:["14-19F相殺判定","16F目で風波ストックが1増加"],
+  hitboxImage:"",
 }, {
   type:"必殺技",
   commands:[keyDown, keyDR, keyRight, keyPlus, lKick],
@@ -328,6 +360,7 @@ export const juriMoves =[{
   block:-8,
   cancel:"SA3",
   tips:[""],
+  hitboxImage:"",
 }, {
   type:"必殺技",
   commands:[keyDown, keyDR, keyRight, keyPlus, lKick],
@@ -339,7 +372,8 @@ export const juriMoves =[{
   hit:1,
   block:-3,
   cancel:"SA3",
-  tips:["風破ストックがある時に[強化版]暗剣殺/[強化版]五黄殺に派生可能"]
+  tips:["風破ストックがある時に[強化版]暗剣殺/[強化版]五黄殺に派生可能"],
+  hitboxImage:"",
 }, {
   type:"必殺技",
   commands:[keyDown, keyDR, keyRight, keyPlus, lKick, mKick],
@@ -352,6 +386,7 @@ export const juriMoves =[{
   block:-2,
   cancel:"SA2",
   tips:["風破ストックがある時にOD暗剣殺/OD五黄殺に派生可能"],
+  hitboxImage:"",
 }, {
   type:"必殺技",
   commands:[keyDown, keyDR, keyRight, keyPlus, mKick],
@@ -363,7 +398,8 @@ export const juriMoves =[{
   hit:3,
   block:-10,
   cancel:"SA3",
-  tips:["8-27F空中判定","空中ヒット時叩きつけダウン"]
+  tips:["8-27F空中判定","空中ヒット時叩きつけダウン"],
+  hitboxImage:"",
 }, {
   type:"必殺技",
   commands:[keyDown, keyDR, keyRight, keyPlus, mKick],
@@ -375,7 +411,8 @@ export const juriMoves =[{
   hit:8,
   block:-10,
   cancel:"SA3",
-  tips:["8-27F空中判定","風破ストックがある時に[強化版]歳破衝/[強化版]五黄殺に派生可能","空中ヒット時叩きつけダウン"]
+  tips:["8-27F空中判定","風破ストックがある時に[強化版]歳破衝/[強化版]五黄殺に派生可能","空中ヒット時叩きつけダウン"],
+  hitboxImage:"",
 }, {
   type:"必殺技",
   commands:[keyDown, keyDR, keyRight, keyPlus, lKick, hKick],
@@ -387,7 +424,8 @@ export const juriMoves =[{
   hit:9,
   block:-10,
   cancel:"SA2",
-  tips:["8-27F空中判定","風破ストックがある時にOD歳破衝/OD五黄殺に派生可能","空中ヒット時床バウンド"]
+  tips:["8-27F空中判定","風破ストックがある時にOD歳破衝/OD五黄殺に派生可能","空中ヒット時床バウンド"],
+  hitboxImage:"",
 }, {
   type:"必殺技",
   commands:[keyDown, keyDR, keyRight, keyPlus, hKick],
@@ -400,6 +438,7 @@ export const juriMoves =[{
   block:-11,
   cancel:"SA3",
   tips:[""],
+  hitboxImage:"",
 }, {
   type:"必殺技",
   commands:[keyDown, keyDR, keyRight, keyPlus, hKick],
@@ -412,6 +451,7 @@ export const juriMoves =[{
   block:-10,
   cancel:"SA3",
   tips:["風破ストックがある時に[強化版]歳破衝/[強化版]暗剣殺に派生可能"],
+  hitboxImage:"",
 }, {
   type:"必殺技",
   commands:[keyDown, keyDR, keyRight, keyPlus, mKick, hKick],
@@ -423,7 +463,8 @@ export const juriMoves =[{
   hit:"Down",
   block:-16,
   cancel:"SA2",
-  tips:["風破ストックがある時にOD歳破衝/OD暗剣殺に派生可能"]
+  tips:["風破ストックがある時にOD歳破衝/OD暗剣殺に派生可能"],
+  hitboxImage:"",
 }, {
   type:"必殺技",
   commands:[keyRight, keyDown, keyDR, keyPlus, lPunch],
@@ -436,6 +477,7 @@ export const juriMoves =[{
   block:-8,
   cancel:"SA3",
   tips:[""],
+  hitboxImage:"",
 }, {
   type:"必殺技",
   commands:[keyRight, keyDown, keyDR, keyPlus, mPunch],
@@ -448,6 +490,7 @@ export const juriMoves =[{
   block:-37,
   cancel:"×",
   tips:["1-8F空中判定の攻撃に対して無敵","8-48F空中判定"],
+  hitboxImage:"",
 }, {
   type:"必殺技",
   commands:[keyRight, keyDown, keyDR, keyPlus, hPunch],
@@ -459,7 +502,8 @@ export const juriMoves =[{
   hit:"Down",
   block:-37,
   cancel:"×",
-  tips:["1-8F空中判定の攻撃に対して無敵","8-48F空中判定"]
+  tips:["1-8F空中判定の攻撃に対して無敵","8-48F空中判定"],
+  hitboxImage:"",
 }, {
   type:"必殺技",
   commands:[keyRight, keyDown, keyDR, keyPlus, anyPunch, anyPunch],
@@ -472,57 +516,59 @@ export const juriMoves =[{
   block:-48,
   cancel:"×",
   tips:["1-9F完全無敵","ヒット時のみ最終段に派生"],
+  hitboxImage:"",
 },{
   type:"必殺技",
   commands:[keyDown,keyDL,keyLeft,keyPlus,anyKick],
   movesName:"疾空閃",
-  movesConition:"(前ジャンプ中に)",
+  movesCondition:"(前ジャンプ中に)",
   startup:18,
   active:"18-着地まで",
-  recovey:"着地後18",
+  recovery:"着地後18",
   hit:"",
   block:"",
   cancel:"×",
   tips:[],
+  hitboxImage:"",
 },{
   type:"必殺技",
   commands:[keyDown,keyDL,keyLeft,keyPlus,anyKick,anyKick],
   movesName:"OD 疾空閃",
-  movesConition:"(前ジャンプ中に)",
-  movesCondition:"",
+  movesCondition:"(前ジャンプ中に)",
   startup:16,
   active:"16-着地まで",
-  recovey:"着地後18",
+  recovery:"着地後18",
   hit:"",
   block:"",
   cancel:"×",
   tips:[],
+  hitboxImage:"",
 },{
   type:"必殺技",
   commands:[anyKick],
   movesName:"死連閃",
-  movesConition:"(疾空閃後に)",
-  movesCondition:"",
+  movesCondition:"(疾空閃後に)",
   startup:6,
   active:"6-38",
-  recovey:"着地後12",
+  recovery:"着地後12",
   hit:"",
   block:"",
   cancel:"×",
   tips:[],
+  hitboxImage:"",
 },{
   type:"必殺技",
   commands:[anyKick],
   movesName:"OD 死連閃",
-  movesConition:"(OD疾空閃後に)",
-  movesCondition:"",
+  movesCondition:"(OD疾空閃後に)",
   startup:6,
   active:"6-38",
-  recovey:"着地後7",
+  recovery:"着地後7",
   hit:"",
   block:"",
   cancel:"×",
   tips:[],
+  hitboxImage:"",
 },{
   type:"スーパーアーツ",
   commands:[keyDown, keyDR, keyRight, keyDown, keyDR, keyRight, keyPlus, anyKick],
@@ -535,6 +581,7 @@ export const juriMoves =[{
   block:-22,
   cancel:"×",
   tips:["1-8F打撃・投げ無敵","最低保証ダメージ30%","C/PCで数値が変動しない","ボタンホールドで風波ストックを1つ消費し300ダメージアップ"],
+  hitboxImage:"",
 },{
   type:"スーパーアーツ",
   commands:[keyDown, keyDL, keyLeft, keyDown, keyDL, keyLeft, keyPlus, anyPunch],
@@ -547,6 +594,7 @@ export const juriMoves =[{
   block:"",
   cancel:"×",
   tips:["発動中地上、空中でチェーンコンボが可能","同じ強度もしくは上の強度のP/Kに移行可能、逆走は出来ない","全ての通常技と一部の特殊技が必殺技キャンセル可能になる","暗転中ボタンホールド突進に派生"],
+  hitboxImage:"",
 },{
   type:"スーパーアーツ",
   commands:[anyPunch],
@@ -559,6 +607,7 @@ export const juriMoves =[{
   block:-17,
   cancel:"×",
   tips:["最低保証ダメージ40%","C/PCで数値が変動しない","ボタンホールドで突進","空中ヒット時吹き飛びダウン","通常技、特殊技、必殺技、SA、ドライブインパクトでキャンセル可能"],
+  hitboxImage:"",
 },{
   type:"スーパーアーツ",
   commands:[keyDown, keyDL, keyLeft, keyDown, keyDL, keyLeft, keyPlus, anyKick],
@@ -571,6 +620,7 @@ export const juriMoves =[{
   block:-31,
   cancel:"×",
   tips:["1-13F完全無敵","最低保証ダメージ50%","C/PCで数値が変動しない","HP25%以下でCAに変化(ダメージ500アップ)"],
+  hitboxImage:"",
 },{
   type:"スーパーアーツ",
   commands:[keyDown, keyDL, keyLeft, keyDown, keyDL, keyLeft, keyPlus, anyKick],
@@ -583,6 +633,7 @@ export const juriMoves =[{
   block:-31,
   cancel:"×",
   tips:["1-13F完全無敵","最低保証ダメージ50%","C/PCで数値が変動しない"],
+  hitboxImage:"",
 },  {
   type:"投げ",
   commands:[keyNutral,keyOr,keyRight,keyPlus,lPunch,lKick],
@@ -595,6 +646,7 @@ export const juriMoves =[{
   block:"",
   cancel:"×",
   tips:[""],
+  hitboxImage:"",
 }, {
   type:"投げ",
   commands:[keyLeft, keyPlus, lPunch, lKick],
@@ -607,6 +659,7 @@ export const juriMoves =[{
   block:"",
   cancel:"×",
   tips:[""],
+  hitboxImage:"",
 }, {
   type:"投げ",
   commands:[lPunch, lKick],
@@ -619,4 +672,5 @@ export const juriMoves =[{
   block:"",
   cancel:"×",
   tips:[""],
+  hitboxImage:"",
 }]

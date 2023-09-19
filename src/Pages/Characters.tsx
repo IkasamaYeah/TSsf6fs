@@ -61,61 +61,61 @@ export default function Characters(){
       <StyledCharactersH1>PICK AND VIEW DETAILS</StyledCharactersH1>
       <StyledColumnWrapper>
         <StyledChatactersWrapper>
-          <Link to="/"><StyledCharactersImage src={rashidImg} alt='Rashid'/></Link>
+          <Link to="/about?name=rashid"><StyledCharactersImage src={rashidImg} alt='Rashid'/></Link>
         </StyledChatactersWrapper>
         <StyledChatactersWrapper>
-          <Link to="/"><StyledCharactersImage src={cammyImg} alt='Cammy'/></Link>
+          <Link to="/about?name=cammy"><StyledCharactersImage src={cammyImg} alt='Cammy'/></Link>
         </StyledChatactersWrapper>
         <StyledChatactersWrapper>
-          <Link to="/"><StyledCharactersImage src={lilyImg} alt='Lily'/></Link>
+          <Link to="/about?name=lily"><StyledCharactersImage src={lilyImg} alt='Lily'/></Link>
         </StyledChatactersWrapper>
         <StyledChatactersWrapper>
-          <Link to="/"><StyledCharactersImage src={zangiefImg} alt='Zangief'/></Link>
+          <Link to="/about?name=zangief"><StyledCharactersImage src={zangiefImg} alt='Zangief'/></Link>
         </StyledChatactersWrapper>
         <StyledChatactersWrapper>
-          <Link to="/"><StyledCharactersImage src={jpImg} alt='JP'/></Link>
+          <Link to="/about?name=jp"><StyledCharactersImage src={jpImg} alt='JP'/></Link>
         </StyledChatactersWrapper>
         <StyledChatactersWrapper>
-          <Link to="/"><StyledCharactersImage src={marisaImg} alt='Marisa'/></Link>
+          <Link to="/about?name=marisa"><StyledCharactersImage src={marisaImg} alt='Marisa'/></Link>
         </StyledChatactersWrapper>
         <StyledChatactersWrapper>
-          <Link to="/"><StyledCharactersImage src={manonImg} alt='Manon'/></Link>
+          <Link to="/about?name=manon"><StyledCharactersImage src={manonImg} alt='Manon'/></Link>
         </StyledChatactersWrapper>
         <StyledChatactersWrapper>
-          <Link to="/"><StyledCharactersImage src={deejayImg} alt='Deejay'/></Link>
+          <Link to="/about?name=deejay"><StyledCharactersImage src={deejayImg} alt='Deejay'/></Link>
         </StyledChatactersWrapper>
         <StyledChatactersWrapper>
-          <Link to="/"><StyledCharactersImage src={hondaImg} alt='E.Honda'/></Link>
+          <Link to="/about?name=e-honda"><StyledCharactersImage src={hondaImg} alt='E.Honda'/></Link>
         </StyledChatactersWrapper>
         <StyledChatactersWrapper>
-          <Link to="/"><StyledCharactersImage src={dhalsimImg} alt='Dhalsim'/></Link>
+          <Link to="/about?name=dhalsim"><StyledCharactersImage src={dhalsimImg} alt='Dhalsim'/></Link>
         </StyledChatactersWrapper>
         <StyledChatactersWrapper>
-          <Link to="/"><StyledCharactersImage src={blankaImg} alt='Blanka'/></Link>
+          <Link to="/about?name=blanka"><StyledCharactersImage src={blankaImg} alt='Blanka'/></Link>
         </StyledChatactersWrapper>
         <StyledChatactersWrapper>
-          <Link to="/"><StyledCharactersImage src={kenImg} alt='Ken'/></Link>
+          <Link to="/about?name=ken"><StyledCharactersImage src={kenImg} alt='Ken'/></Link>
         </StyledChatactersWrapper>
         <StyledChatactersWrapper>
-          <Link to="/"><StyledCharactersImage src={juriImg} alt='Juri'/></Link>
+          <Link to="/about?name=juri"><StyledCharactersImage src={juriImg} alt='Juri'/></Link>
         </StyledChatactersWrapper>
         <StyledChatactersWrapper>
-          <Link to="/"><StyledCharactersImage src={kimberlyImg} alt='Kimberly'/></Link>
+          <Link to="/about?name=kimberly"><StyledCharactersImage src={kimberlyImg} alt='Kimberly'/></Link>
         </StyledChatactersWrapper>
         <StyledChatactersWrapper>
-          <Link to="/"><StyledCharactersImage src={guileImg} alt='Guile'/></Link>
+          <Link to="/about?name=guile"><StyledCharactersImage src={guileImg} alt='Guile'/></Link>
         </StyledChatactersWrapper>
         <StyledChatactersWrapper>
-          <Link to="/"><StyledCharactersImage src={chunliImg} alt='Chun-Li'/></Link>
+          <Link to="/about?name=chun-li"><StyledCharactersImage src={chunliImg} alt='Chun-Li'/></Link>
         </StyledChatactersWrapper>
         <StyledChatactersWrapper>
-          <Link to="/"><StyledCharactersImage src={jamieImg} alt='Jamie'/></Link>
+          <Link to="/about?name=jamie"><StyledCharactersImage src={jamieImg} alt='Jamie'/></Link>
         </StyledChatactersWrapper>
         <StyledChatactersWrapper>
-          <Link to="/"><StyledCharactersImage src={lukeImg} alt='Luke'/></Link>
+          <Link to="/about?name=luke"><StyledCharactersImage src={lukeImg} alt='Luke'/></Link>
         </StyledChatactersWrapper>
         <StyledChatactersWrapper>
-          <Link to="/"><StyledCharactersImage src={ryuImg} alt='Ryu'/></Link>
+          <Link to="/about?name=ryu"><StyledCharactersImage src={ryuImg} alt='Ryu'/></Link>
         </StyledChatactersWrapper>
       </StyledColumnWrapper>
     </StyledCharactersTop>

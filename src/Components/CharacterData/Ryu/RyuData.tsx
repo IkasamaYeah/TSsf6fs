@@ -20,16 +20,37 @@ import keyNext from '../CommandImages/key-next.png'
 import keyOr from '../CommandImages/or-icon.png'
 
 
-export const ryuDetails = [{
+export const ryuDetails:{
+  name:string;
+  strongpoints:string[];
+  weakpoints:string[];
+  topImage:string;
+  p1Image:string;
+  p2Image:string;
+} = {
   name:"RYU",
   strongpoints:["aaaaa","bbbbb","ccccc"],
   weakpoints:["ddddd","eeeee","fffff"],
   topImage:ryuImage,
   p1Image:p1Image,
   p2Image:p2Image,
-}]
+}
 
-export const ryuMoves = [{
+export const ryuMoves:{
+  [key:string]: string|string[]|number|number[],
+  type:string
+  commands:string[]
+  movesName:string
+  movesCondition:string
+  startup:any
+  active:any
+  recovery:any
+  hit:any
+  block:any
+  cancel:any
+  tips:string[]
+  hitboxImage:string 
+}[] = [{
   type:"通常技",
   commands:[lPunch],
   movesName:"立ち弱P(ジャブ)",

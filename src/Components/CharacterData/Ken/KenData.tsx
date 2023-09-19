@@ -1,6 +1,6 @@
-import kenImage from '../ken-top.png'
-import p1Image from '../ken-1p-image.png'
-import p2Image from '../ken-2p-image.png'
+import kenImage from './ken-top.png'
+import p1Image from './ken-1p-image.png'
+import p2Image from './ken-2p-image.png'
 import anyPunch from '../CommandImages/p-any-icon.png'
 import lPunch from '../CommandImages/p-l-icon.png'
 import mPunch from '../CommandImages/p-m-icon.png'
@@ -21,16 +21,37 @@ import keyOr from '../CommandImages/or-icon.png'
 import kenLPunch from './lPunch.gif'
 
 
-export const kenDetails = [{
+export const kenDetails:{
+  name:string;
+  strongpoints:string[];
+  weakpoints:string[];
+  topImage:string;
+  p1Image:string;
+  p2Image:string;
+} = {
   name:"KEN",
   strongpoints:["・弾と昇竜のスタンダードな強さ","・画面端への運び性能","・位置入れ替えもできるコンボ選択肢"],
   weakpoints:["・目立った弱点はそこまでない","・少し高いコンボ難易度","・人口の多さから対策されやすい"],
   topImage:kenImage,
   p1Image:p1Image,
   p2Image:p2Image,
-}]
+}
 
-export const kenMoves = [{
+export const kenMoves:{
+  [key:string]: string|string[]|number|number[],
+  type:string
+  commands:string[]
+  movesName:string
+  movesCondition:string
+  startup:any
+  active:any
+  recovery:any
+  hit:any
+  block:any
+  cancel:any
+  tips:string[]
+  hitboxImage:string 
+}[]= [{
   type:"通常技",
   commands:[lPunch],
   movesName:"立ち弱P(ジャブ)",

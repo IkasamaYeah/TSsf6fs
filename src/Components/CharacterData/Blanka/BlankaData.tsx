@@ -22,16 +22,37 @@ import keyNutral from '../CommandImages/nutral-icon.png'
 import keyOr from '../CommandImages/or-icon.png'
 
 
-export const blankaDetails = [{
+export const blankaDetails:{
+  name:string;
+  strongpoints:string[];
+  weakpoints:string[];
+  topImage:string;
+  p1Image:string;
+  p2Image:string;
+} = {
   name:"BLANKA",
   strongpoints:["aaaaa","bbbbb","ccccc"],
   weakpoints:["ddddd","eeeee","fffff"],
   topImage:blankaImage,
   p1Image:p1Image,
   p2Image:p2Image,
-}]
+}
 
-export const blankaMoves = [{
+export const blankaMoves:{
+  [key:string]: string|string[]|number|number[],
+  type:string
+  commands:string[]
+  movesName:string
+  movesCondition:string
+  startup:any
+  active:any
+  recovery:any
+  hit:any
+  block:any
+  cancel:any
+  tips:string[]
+  hitboxImage:string 
+}[] = [{
   type:"通常技",
   commands:[lPunch],
   movesName:"立ち弱P(ベアアタック)",

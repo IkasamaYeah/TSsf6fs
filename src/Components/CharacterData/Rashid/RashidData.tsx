@@ -1,10 +1,10 @@
 import rashidImage from './rashid-top.png'
 import p1Image from './random-icon.png'
 import p2Image from './random-icon.png'
-import anyPunch from './CommandImages/p-any-icon.png'
-import lPunch from './CommandImages/p-l-icon.png'
-import mPunch from './CommandImages/p-m-icon.png'
-import hPunch from './CommandImages/p-h-icon.png'
+import anyPunch from '../CommandImages/p-any-icon.png'
+import lPunch from '../CommandImages/p-l-icon.png'
+import mPunch from '../CommandImages/p-m-icon.png'
+import hPunch from '../CommandImages/p-h-icon.png'
 import anyKick from '../CommandImages/k-any-icon.png'
 import lKick from '../CommandImages/k-l-icon.png'
 import mKick from '../CommandImages/k-m-icon.png'
@@ -21,17 +21,37 @@ import keyNext from '../CommandImages/key-next.png'
 import keyOr from '../CommandImages/or-icon.png'
 import rashidLPunch from './lPunch.gif'
 
-export const rashidDetails = [{
+export const rashidDetails:{
+  name:string;
+  strongpoints:string[];
+  weakpoints:string[];
+  topImage:string;
+  p1Image:string;
+  p2Image:string;
+} = {
   name:"RASHID",
   strongpoints:["aaaa","bbbb","ccccc"],
   weakpoints:["ddddd","eeeee","fffff"],
   topImage:rashidImage,
   p1Image:p1Image,
   p2Image:p2Image,
-}]
+}
 
-export const rashidMoves =
-  [{
+export const rashidMoves:{
+  [key:string]: string|string[]|number|number[],
+  type:string
+  commands:string[]
+  movesName:string
+  movesCondition:string
+  startup:any
+  active:any
+  recovery:any
+  hit:any
+  block:any
+  cancel:any
+  tips:string[]
+  hitboxImage:string 
+}[] = [{
     type: "通常技",
     commands:[lPunch],
     movesName:"立ち弱P(スタンドスラップ)",
@@ -360,7 +380,7 @@ export const rashidMoves =
     type: "必殺技",
     commands:[keyDown, keyDR, keyRight, keyPlus, lPunch],
     movesName:"[気流強化]弱 スピニング・ミキサー",
-    skillConditon:"(気流接触中に)",
+    movesCondition:"(気流接触中に)",
     startup:6,
     active:"6-59",
     recovery:15,
@@ -386,7 +406,7 @@ export const rashidMoves =
     type: "必殺技",
     commands:[keyDown, keyDR, keyRight, keyPlus, mPunch],
     movesName:"[気流強化]中 スピニング・ミキサー",
-    skillConditon:"(気流接触中に)",
+    movesCondition:"(気流接触中に)",
     startup:5,
     active:"5-59",
     recovery:"着地後11",
@@ -412,7 +432,7 @@ export const rashidMoves =
     type: "必殺技",
     commands:[keyDown, keyDR, keyRight, keyPlus, hPunch],
     movesName:"[気流強化]強 スピニング・ミキサー",
-    skillConditon:"(気流接触中に)",
+    movesCondition:"(気流接触中に)",
     startup:5,
     active:"5-51",
     recovery:"着地後14",
@@ -438,7 +458,7 @@ export const rashidMoves =
     type: "必殺技",
     commands:[keyDown, keyDR, keyRight, keyPlus, anyPunch, anyPunch],
     movesName:"[気流強化]OD スピニング・ミキサー",
-    skillConditon:"(気流接触中に)",
+    movesCondition:"(気流接触中に)",
     startup:4,
     active:"4-59",
     recovery:"着地後15",
@@ -464,7 +484,7 @@ export const rashidMoves =
     type: "必殺技",
     commands:[keyDown, keyDL, keyLeft, keyPlus, lKick],
     movesName:"[気流強化]弱 イーグル・スパイク",
-    skillConditon:"(気流接触中に)",
+    movesCondition:"(気流接触中に)",
     startup:14,
     active:"14-26",
     recovery:33,
@@ -490,7 +510,7 @@ export const rashidMoves =
     type: "必殺技",
     commands:[keyDown, keyDL, keyLeft, keyPlus, mKick],
     movesName:"[気流強化]中 イーグル・スパイク",
-    skillConditon:"(気流接触中に)",
+    movesCondition:"(気流接触中に)",
     startup:17,
     active:"17-31",
     recovery:50,
@@ -516,7 +536,7 @@ export const rashidMoves =
     type: "必殺技",
     commands:[keyDown, keyDL, keyLeft, keyPlus, hKick],
     movesName:"[気流強化]強 イーグル・スパイク",
-    skillConditon:"(気流接触中に)",
+    movesCondition:"(気流接触中に)",
     startup:17,
     active:"17-31",
     recovery:50,
@@ -542,7 +562,7 @@ export const rashidMoves =
     type: "必殺技",
     commands:[keyDown, keyDL, keyLeft, keyPlus, anyKick, anyKick],
     movesName:"[気流強化]OD イーグル・スパイク",
-    skillConditon:"(気流接触中に)",
+    movesCondition:"(気流接触中に)",
     startup:18,
     active:"18-31",
     recovery:22,
@@ -875,6 +895,7 @@ export const rashidMoves =
     block:-75,
     cancel:"×",
     tips:["1-16F 完全無敵","最低保障ダメージ50%","カウンター/パニッシュカウンターで数値が変動しない","HP25%以下で性能変化"],
+    hitboxImage:"",
   }, {
     type: "スーパーアーツ",
     commands:[keyDown, keyDR, keyRight, keyDown, keyDR, keyRight, keyPlus, anyPunch],
@@ -887,6 +908,7 @@ export const rashidMoves =
     block:-75,
     cancel:"×",
     tips:["1-16F 完全無敵","最低保障ダメージ50%","カウンター/パニッシュカウンターで数値が変動しない"],
+    hitboxImage:"",
   }, {
     type: "投げ",
     commands:[keyNutral,keyOr,keyRight,keyPlus, lPunch, lKick],

@@ -20,19 +20,41 @@ import keyNutral from '../CommandImages/nutral-icon.png'
 import keyNext from '../CommandImages/key-next.png'
 import cammyLPunch from './lPunch.gif'
 
-export const cammyDetails = [{
+export const cammyDetails:{
+  name:string;
+  strongpoints:string[];
+  weakpoints:string[];
+  topImage:string;
+  p1Image:string;
+  p2Image:string;
+} = {
   name:"CAMMY",
   strongpoints:["aaaaaaaaaa","bbbbbbbb","ccccccccc"],
   weakpoints:["ddddddddddd","eeeeeeeeee","fffffffffffff"],
   topImage:cammyImage,
   p1Image:p1Image,
   p2Image:p2Image,
-}]
+}
 
-export const cammyMoves = [{
+export const cammyMoves:{
+  [key:string]: string|string[]|number|number[],
+  type:string
+  commands:string[]
+  movesName:string
+  movesCondition:string
+  startup:any
+  active:any
+  recovery:any
+  hit:any
+  block:any
+  cancel:any
+  tips:string[]
+  hitboxImage:string 
+}[] = [{
   type:"通常技",
   commands:[lPunch],
   movesName:"立ち弱P(フーリガンジャブ)",
+  movesCondition:"",
   startup:4,
   active:"4-6",
   recovery:7,
@@ -45,6 +67,7 @@ export const cammyMoves = [{
   type:"通常技",
   commands:[lKick],
   movesName:"立ち弱K(フーリガンローキック)",
+  movesCondition:"",
   startup:5,
   active:"5-7",
   recovery:10,
@@ -57,6 +80,7 @@ export const cammyMoves = [{
   type:"通常技",
   commands:[mPunch],
   movesName:"立ち中P(フーリガンストレート)",
+  movesCondition:"",
   startup:6,
   active:"6-9",
   recovery:13,
@@ -69,6 +93,7 @@ export const cammyMoves = [{
   type:"通常技",
   commands:[mKick],
   movesName:"立ち中K(トゥースマッシュ)",
+  movesCondition:"",
   startup:8,
   active:"8-10",
   recovery:18,
@@ -81,6 +106,7 @@ export const cammyMoves = [{
   type:"通常技",
   commands:[hPunch],
   movesName:"立ち強P(スイングナックル)",
+  movesCondition:"",
   startup:8,
   active:"8-10",
   recovery:20,
@@ -93,6 +119,7 @@ export const cammyMoves = [{
   type:"通常技",
   commands:[hKick],
   movesName:"立ち強K(スティールスライサー)",
+  movesCondition:"",
   startup:11,
   active:"11-13",
   recovery:21,
@@ -105,6 +132,7 @@ export const cammyMoves = [{
   type:"通常技",
   commands:[keyDown, keyPlus, lPunch],
   movesName:"しゃがみ弱P(ラピッドショット)",
+  movesCondition:"",
   startup:4,
   active:"4-5",
   recovery:8,
@@ -117,6 +145,7 @@ export const cammyMoves = [{
   type:"通常技",
   commands:[keyDown, keyPlus, lKick],
   movesName:"しゃがみ弱K(スタンレイピア)",
+  movesCondition:"",
   startup:5,
   active:"5-7",
   recovery:7,
@@ -129,6 +158,7 @@ export const cammyMoves = [{
   type:"通常技",
   commands:[keyDown, keyPlus, mPunch],
   movesName:"しゃがみ中P(ライトグレネード)",
+  movesCondition:"",
   startup:7,
   active:"7-9",
   recovery:14,
@@ -141,6 +171,7 @@ export const cammyMoves = [{
   type:"通常技",
   commands:[keyDown, keyPlus, mKick],
   movesName:"しゃがみ中K(トゥーバズソー)",
+  movesCondition:"",
   startup:7,
   active:"7-9",
   recovery:14,
@@ -153,6 +184,7 @@ export const cammyMoves = [{
   type:"通常技",
   commands:[keyDown, keyPlus, hPunch],
   movesName:"しゃがみ強P(トーピードーシェル)",
+  movesCondition:"",
   startup:"10",
   active:"10-13",
   recovery:"15",
@@ -165,6 +197,7 @@ export const cammyMoves = [{
   type:"通常技",
   commands:[keyDown, keyPlus, hKick],
   movesName:"しゃがみ強K(グランドスイープ)",
+  movesCondition:"",
   startup:9,
   active:"9-11",
   recovery:24,
@@ -177,6 +210,7 @@ export const cammyMoves = [{
   type:"特殊技",
   commands:[keyLeft,keyPlus,mPunch],
   movesName:"リフトアッパー",
+  movesCondition:"",
   startup:5,
   active:"5-9",
   recovery:12,
@@ -189,6 +223,7 @@ export const cammyMoves = [{
   type:"特殊技",
   commands:[keyRight,keyPlus,hKick],
   movesName:"ディレイリーパー",
+  movesCondition:"",
   startup:18,
   active:"18-20",
   recovery:25,
@@ -201,6 +236,7 @@ export const cammyMoves = [{
   type:"特殊技",
   commands:[keyLeft,keyPlus,hKick],
   movesName:"アサルトブレード",
+  movesCondition:"",
   startup:9,
   active:"9-11",
   recovery:18,
@@ -213,6 +249,7 @@ export const cammyMoves = [{
   type:"特殊技",
   commands:[keyLeft,keyPlus,mPunch,hPunch],
   movesName:"リフトコンビネーション",
+  movesCondition:"",
   startup:9,
   active:"9-11",
   recovery:23,
@@ -225,6 +262,7 @@ export const cammyMoves = [{
   type:"特殊技",
   commands:[hPunch,keyNext,hKick],
   movesName:"スイングコンビネーション",
+  movesCondition:"",
   startup:13,
   active:"13-31",
   recovery:29,
@@ -237,6 +275,7 @@ export const cammyMoves = [{
   type:"必殺技",
   commands:[keyDown, keyDR, keyRight, keyPlus, lKick],
   movesName:"弱 スパイラルアロー",
+  movesCondition:"",
   startup:9,
   active:"9-21",
   recovery:21,
@@ -249,6 +288,7 @@ export const cammyMoves = [{
   type:"必殺技",
   commands:[keyDown, keyDR, keyRight, keyPlus, mKick],
   movesName:"中 スパイラルアロー",
+  movesCondition:"",
   startup:9,
   active:"9-23",
   recovery:21,
@@ -261,6 +301,7 @@ export const cammyMoves = [{
   type:"必殺技",
   commands:[keyDown, keyDR, keyRight, keyPlus, hKick],
   movesName:"強 スパイラルアロー",
+  movesCondition:"",
   startup:15,
   active:"15-30",
   recovery:21,
@@ -273,6 +314,7 @@ export const cammyMoves = [{
   type:"必殺技",
   commands:[keyDown, keyDR, keyRight, keyPlus, hKick],
   movesName:"[ホールド]強 スパイラルアロー",
+  movesCondition:"",
   startup:27,
   active:"27-42",
   recovery:20,
@@ -285,6 +327,7 @@ export const cammyMoves = [{
   type:"必殺技",
   commands:[keyDown, keyDR, keyRight, keyPlus, anyKick, anyKick],
   movesName:"[OD]スパイラルアロー",
+  movesCondition:"",
   startup:13,
   active:"13-28",
   recovery:20,
@@ -297,6 +340,7 @@ export const cammyMoves = [{
   type:"必殺技",
   commands:[keyRight, keyDown, keyDR, keyPlus, lPunch],
   movesName:"弱 キャノンスパイク",
+  movesCondition:"",
   startup:5,
   active:"5-16",
   recovery:"24+着地後16",
@@ -309,6 +353,7 @@ export const cammyMoves = [{
   type:"必殺技",
   commands:[keyRight, keyDown, keyDR, keyPlus, mPunch],
   movesName:"中 キャノンスパイク",
+  movesCondition:"",
   startup:6,
   active:"6-17",
   recovery:"25+着地後16",
@@ -321,6 +366,7 @@ export const cammyMoves = [{
   type:"必殺技",
   commands:[keyRight, keyDown, keyDR, keyPlus, hPunch],
   movesName:"強 キャノンスパイク",
+  movesCondition:"",
   startup:7,
   active:"7-18",
   recovery:"28+着地後16",
@@ -333,6 +379,7 @@ export const cammyMoves = [{
   type:"必殺技",
   commands:[keyRight, keyDown, keyDR, keyPlus, hPunch],
   movesName:"[ホールド]強 キャノンスパイク",
+  movesCondition:"",
   startup:24,
   active:"24-35",
   recovery:"29+着地後16",
@@ -345,6 +392,7 @@ export const cammyMoves = [{
   type:"必殺技",
   commands:[keyRight, keyDown, keyDR, keyPlus, anyPunch, anyPunch],
   movesName:"OD キャノンスパイク",
+  movesCondition:"",
   startup:6,
   active:"6-17",
   recovery:"30+着地後16",
@@ -357,6 +405,7 @@ export const cammyMoves = [{
   type:"必殺技",
   commands:[keyDown, keyDL, keyLeft, keyPlus, lPunch],
   movesName:"弱 アクセルスピンナックル",
+  movesCondition:"",
   startup:21,
   active:"21-24",
   recovery:16,
@@ -369,6 +418,7 @@ export const cammyMoves = [{
   type:"必殺技",
   commands:[keyDown, keyDL, keyLeft, keyPlus, mPunch],
   movesName:"中 アクセルスピンナックル",
+  movesCondition:"",
   startup:24,
   active:"24-27",
   recovery:16,
@@ -381,6 +431,7 @@ export const cammyMoves = [{
   type:"必殺技",
   commands:[keyDown, keyDL, keyLeft, keyPlus, hPunch],
   movesName:"強 アクセルスピンナックル",
+  movesCondition:"",
   startup:28,
   active:"28-31",
   recovery:17,
@@ -393,6 +444,7 @@ export const cammyMoves = [{
   type:"必殺技",
   commands:[keyDown, keyDL, keyLeft, keyPlus, anyPunch, anyPunch],
   movesName:"OD アクセルスピンナックル",
+  movesCondition:"",
   startup:25,
   active:"25-28",
   recovery:17,
@@ -431,6 +483,7 @@ export const cammyMoves = [{
   type:"必殺技",
   commands:[keyDown, keyDR, keyRight, keyPlus, anyPunch],
   movesName:"フーリガンコンビネーション",
+  movesCondition:"",
   startup:"",
   active:"",
   recovery:"",
@@ -443,6 +496,7 @@ export const cammyMoves = [{
   type:"必殺技",
   commands:[keyDown, keyDR, keyRight, keyPlus, hPunch],
   movesName:"[ホールド]フーリガンコンビネーション",
+  movesCondition:"",
   startup:"",
   active:"",
   recovery:"",
@@ -455,6 +509,7 @@ export const cammyMoves = [{
   type:"必殺技",
   commands:[keyDown, keyDR, keyRight, keyPlus, anyPunch,anyPunch],
   movesName:"OD フーリガンコンビネーション",
+  movesCondition:"",
   startup:"",
   active:"",
   recovery:"",
@@ -552,7 +607,7 @@ export const cammyMoves = [{
   hit:"+6~+9",
   block:"-4~-1",
   cancel:"×",
-  hitboImage:"",
+  hitboxImage:"",
   tips: ["ヒット･ガードさせた高度によって硬直差が変化"],
 }, {
   type:"必殺技",
@@ -662,6 +717,7 @@ export const cammyMoves = [{
   type:"スーパーアーツ",
   commands:[keyDown, keyDR, keyRight, keyDown, keyDR, keyRight, keyPlus, anyKick],
   movesName:"SA1 スピンドライブスマッシャー",
+  movesCondition:"",
   startup:9,
   active:"9-19",
   recovery:38,
@@ -674,6 +730,7 @@ export const cammyMoves = [{
   type:"スーパーアーツ",
   commands:[keyDown, keyDL, keyLeft, keyDown, keyDL, keyLeft, keyPlus, anyKick],
   movesName:"SA2 キラービースピン",
+  movesCondition:"",
   startup:13,
   active:"13-21",
   recovery:37,
