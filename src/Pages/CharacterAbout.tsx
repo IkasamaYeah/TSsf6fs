@@ -49,67 +49,60 @@ export function CharacterAbout () {
   
   const [searchParams] = useSearchParams();
   
-  let details = ryuDetails
-  let moves = ryuMoves
+  type CharacterData = {
+    details:{
+      name:string;
+      strongpoints:string[];
+      weakpoints:string[];
+      topImage:string;
+      p1Image:string;
+      p2Image:string;
+    }
+    moves:{
+      [key:string]: string|string[]|number|number[],
+      type:string
+      commands:string[]
+      movesName:string
+      movesCondition:string
+      startup:any
+      active:any
+      recovery:any
+      hit:any
+      block:any
+      cancel:any
+      tips:string[]
+      hitboxImage:string 
+    }[]
+  }
 
-  if (searchParams.get("name") === "juri"){
-    details = juriDetails
-    moves = juriMoves
-  } else if (searchParams.get("name") === "ken"){
-    details = kenDetails
-    moves = kenMoves
-  } else if (searchParams.get("name") === "cammy"){
-    details = cammyDetails
-    moves = cammyMoves
-  } else if (searchParams.get("name") === "jp"){
-    details = jpDetails
-    moves = jpMoves
-  } else if (searchParams.get("name") === "zangief"){
-    details = zangiefDetails
-    moves = zangiefMoves
-  } else if (searchParams.get("name") === "lily"){
-    details = lilyDetails
-    moves = lilyMoves
-  } else if (searchParams.get("name") === "manon"){
-    details = manonDetails
-    moves = manonMoves
-  } else if (searchParams.get("name") === "marisa"){
-    details = marisaDetails
-    moves = marisaMoves
-  } else if (searchParams.get("name") === "deejay"){
-    details = deejayDetails
-    moves = deejayMoves
-  } else if (searchParams.get("name") === "honda"){
-    details = ehondaDetails
-    moves = ehondaMoves
-  } else if (searchParams.get("name") === "dhalsim"){
-    details = dhalsimDetails
-    moves = dhalsimMoves
-  } else if (searchParams.get("name") === "blanka"){
-    details = blankaDetails
-    moves = blankaMoves
-  } else if (searchParams.get("name") === "kimberly"){
-    details = kimberlyDetails
-    moves = kimberlyMoves
-  } else if (searchParams.get("name") === "guile"){
-    details = guileDetails
-    moves = guileMoves
-  } else if (searchParams.get("name") === "chunli"){
-    details = chunliDetails
-    moves = chunliMoves
-  } else if (searchParams.get("name") === "jamie"){
-    details = jamieDetails
-    moves = jamieMoves
-  } else if (searchParams.get("name") === "luke"){
-    details = lukeDetails
-    moves = lukeMoves
-  } else if (searchParams.get("name") === "ryu"){
-    details = ryuDetails
-    moves = ryuMoves
-  } else if (searchParams.get("name") === "rashid"){
-    details = rashidDetails
-    moves = rashidMoves
-  } 
+
+  const characterDataMap:Record<string , CharacterData> = {
+    juri: { details: juriDetails, moves: juriMoves },
+    ken: { details: kenDetails, moves: kenMoves },
+    cammy: { details: cammyDetails, moves: cammyMoves },
+    jp: { details: jpDetails, moves: jpMoves },
+    zangief: { details: zangiefDetails, moves: zangiefMoves },
+    lily: { details: lilyDetails, moves: lilyMoves },
+    manon: { details: manonDetails, moves: manonMoves },
+    marisa: { details: marisaDetails, moves: marisaMoves },
+    deejay: { details: deejayDetails, moves: deejayMoves },
+    honda: { details: ehondaDetails, moves: ehondaMoves },
+    dhalsim: { details: dhalsimDetails, moves: dhalsimMoves },
+    blanka: { details: blankaDetails, moves: blankaMoves },
+    kimberly: { details: kimberlyDetails, moves: kimberlyMoves },
+    guile: { details: guileDetails, moves: guileMoves },
+    chunli: { details: chunliDetails, moves: chunliMoves },
+    jamie: { details: jamieDetails, moves: jamieMoves },
+    luke: { details: lukeDetails, moves: lukeMoves },
+    ryu: { details: ryuDetails, moves: ryuMoves },
+    rashid: { details: rashidDetails, moves: rashidMoves },
+  }
+  
+  const characterName = searchParams.get("name")||""
+  
+  const selectedCharacterData = characterDataMap[characterName.toLowerCase()]
+  
+  const { details, moves } = selectedCharacterData
 
   return(<>
     <AboutPage>

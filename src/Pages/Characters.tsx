@@ -106,7 +106,7 @@ export default function Characters(){
           <Link to="/about?name=guile"><StyledCharactersImage src={guileImg} alt='Guile'/></Link>
         </StyledChatactersWrapper>
         <StyledChatactersWrapper>
-          <Link to="/about?name=chun-li"><StyledCharactersImage src={chunliImg} alt='Chun-Li'/></Link>
+          <Link to="/about?name=chunli"><StyledCharactersImage src={chunliImg} alt='Chun-Li'/></Link>
         </StyledChatactersWrapper>
         <StyledChatactersWrapper>
           <Link to="/about?name=jamie"><StyledCharactersImage src={jamieImg} alt='Jamie'/></Link>

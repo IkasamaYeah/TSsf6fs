@@ -34,8 +34,9 @@ const StyledTopImageWrapper = styled.div`
   top: 60px;
   left: 25vw;
   width: min(50vw,1300px);
-  height: min(40vw,1135px);
+  height: 100%;
   z-index: 0;
+  overflow: hidden;
 `
 
 const StyledTopImage = styled.img`
