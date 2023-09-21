@@ -23,17 +23,12 @@ import styled from '@emotion/styled'
 import { useState } from 'react'
 import { VSImageWrapper } from '../Components/FramesVS/VSImageWrapper'
 import { ChooseCondition } from '../Components/FramesVS/ChooseCondition'
-import Arrow from '../Components/CharacterData/CommandImages/hold-left-icon.png'
-import { css } from '@emotion/react'
+import { NarrowDownConditions } from '../Components/FramesVS/NarrowDownCondition'
+
 
 const StyledFramesVS = styled.div`
-`
-
-const StyledArrow = css`
-`
-
-const ReversedAttacker = css`
-  rotate: 180deg;
+  background: #00000f;
+  color: white;
 `
 
 const StyledP1ConditionWrapper = styled.div`
@@ -49,14 +44,14 @@ export default function FramesVS(){
   const p2CharacterHandler = (e:React.ChangeEvent<HTMLSelectElement>) => setP2Character(e.target.value)
   const [reverseAttacker , setReverseAttacker] = useState(false)
   const toggleReverse = () => setReverseAttacker(!reverseAttacker)
-  const [ p1Condition , setP1Condition] = useState("block")
-  const p1ConditionHandler = (e:React.ChangeEvent<HTMLSelectElement>) => setP1Condition(e.target.value)
+  const [ p1Condition , setP1Condition] = useState("")
+  const p1ConditionHandler = (e:React.ChangeEvent<HTMLInputElement>) => setP1Condition(e.target.value)
   const [ p2Condition , setP2Condition] = useState("block")
-  const p2ConditionHandler = (e:React.ChangeEvent<HTMLSelectElement>) => setP2Condition(e.target.value)
+  const p2ConditionHandler = (e:React.ChangeEvent<HTMLInputElement>) => setP2Condition(e.target.value)
   const [ p1Moves , setP1Moves ] = useState(["通常技","特殊技","必殺技","スーパーアーツ","投げ"])
   const p1MovesHandler = (e:React.ChangeEvent<HTMLInputElement>) => e.target.checked? setP1Moves([...p1Moves,e.target.value]) : setP1Moves(p1Moves.filter(p1Move => p1Move.match(e.target.value) === null))
   const [ p2Moves , setP2Moves ] = useState(["通常技","特殊技","必殺技","スーパーアーツ","投げ"])
-  const P2MovesHandler = (e:React.ChangeEvent<HTMLInputElement>) => e.target.checked? setP2Moves([...p2Moves , e.target.value]) : setP2Moves(p2Moves.filter(p2Move => p2Move.match(e.target.value) === null))
+  const p2MovesHandler = (e:React.ChangeEvent<HTMLInputElement>) => e.target.checked? setP2Moves([...p2Moves , e.target.value]) : setP2Moves(p2Moves.filter(p2Move => p2Move.match(e.target.value) === null))
   
   type CharacterData = {
     details:{
@@ -121,38 +116,15 @@ export default function FramesVS(){
       <VSImageWrapper pickedP1Details={pickedP1Details}
                       pickedP2Details={pickedP2Details}/>}
       {p1CharacterHandler&&p2CharacterHandler&&pickedP1Moves&&pickedP2Moves&&
-      <ChooseCondition  pickedP1Moves={pickedP1Moves}
-                        pickedP2Moves={pickedP2Moves}
-                        p1CharacterHandler={p1CharacterHandler}
-                        p2CharacterHandler={p2CharacterHandler}/>}
-      <p>which one is attacking?</p>
-      <img src={Arrow} alt="" onClick={toggleReverse} css={[StyledArrow , reverseAttacker&&ReversedAttacker]}/>
-      <StyledP1ConditionWrapper>
-        <select onChange={p1ConditionHandler}>
-          <option value="block">ガード</option>
-          <option value="hit">ヒット</option>
-          <option value="chit">カウンターヒット</option>
-          <option value="pchit">パニッシュカウンター</option>
-        </select>
-      </StyledP1ConditionWrapper>
-      <StyledP2ConditionWrapper>
-        <input type='checkbox' value='通常技' id='normal' onChange={P2MovesHandler} defaultChecked/>
-          <label htmlFor='normal'>通常技</label>
-        <input type='checkbox' value='特殊技' id='unique' onChange={P2MovesHandler} defaultChecked/>
-          <label htmlFor='unique'>特殊技</label>
-        <input type='checkbox' value='必殺技' id='special' onChange={P2MovesHandler} defaultChecked/>
-          <label htmlFor='special'>必殺技</label>
-        <input type='checkbox' value='スーパーアーツ' id='sa' onChange={P2MovesHandler} defaultChecked/>
-          <label htmlFor='sa'>スーパーアーツ</label>
-        <input type='checkbox' value='投げ' id='throw' onChange={P2MovesHandler} defaultChecked/>
-          <label htmlFor='throw'>投げ</label>
-        <select>
-          {pickedP2Moves?.filter(pickedP2Move => p2Moves.includes(pickedP2Move.type))
-          .map(pickedP2Move =>
-            <option value={pickedP2Move.movesName}>{pickedP2Move.movesName}</option>
-            )}
-        </select>
-      </StyledP2ConditionWrapper>
+      <ChooseCondition  p1CharacterHandler={p1CharacterHandler}
+                        p2CharacterHandler={p2CharacterHandler}
+                        reverseAttacker={reverseAttacker}
+                        toggleReverse={toggleReverse}/>}
+      <NarrowDownConditions reverseAttacker={reverseAttacker}
+                            p1ConditionHandler={p1ConditionHandler}
+                            p2MovesHandler={p2MovesHandler}
+                            pickedP2Moves={pickedP2Moves}
+                            p2Moves={p2Moves}/>
     </StyledFramesVS>
   </>)
 }

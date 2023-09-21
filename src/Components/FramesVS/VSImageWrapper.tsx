@@ -1,14 +1,18 @@
 import styled from "@emotion/styled";
-import { useState } from "react";
 
 const StyledVSImageWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding-top: 80px;
+  width: 100%;
+  padding-left: 15vw;
+  padding-right: 15vw;
 `
 
-const StyledP1Image = styled.img`
+const StyledImageWrapper = styled.div`
+  width: 40%;
 `
 
-const StyledP2Image = styled.img`
-`
 
 type Props = {
   pickedP1Details:{
@@ -32,8 +36,12 @@ type Props = {
 export function VSImageWrapper ({ pickedP1Details , pickedP2Details }:Props) {
   return (<>
   <StyledVSImageWrapper>
-    <StyledP1Image src={pickedP1Details.p1Image}/>
-    <StyledP2Image src={pickedP2Details.p2Image}/>
+    <StyledImageWrapper>
+      <img src={pickedP1Details.p1Image}/>
+    </StyledImageWrapper>
+    <StyledImageWrapper>
+      <img src={pickedP2Details.p2Image}/>
+    </StyledImageWrapper>
   </StyledVSImageWrapper>
 </>)
 }
