@@ -3,15 +3,23 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import Arrow from "../../images/yellow-arrow.png"
-import { useState } from "react";
 
 const StyledCharacterPickWrapper = styled.div`
   padding-top: 2vw;
   display: flex;
   justify-content: space-around;
+  margin-left: 7vw;
+  margin-right: 7vw;
 `
 
 const StyledSelectWrapper = styled.div`
+	text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+`
+
+const StyledArrowWrapper = styled.div`
 	text-align: center;
   display: flex;
   flex-direction: column;
@@ -25,6 +33,26 @@ const StyledSelectLabel = styled.label`
   font-weight: bold;
   letter-spacing: 0.1vw;
 	pointer-events: none;
+`
+
+const StyledP1SelectLabel = styled.label`
+  color: rgba(255, 255, 255, 0.9);
+	font-size: 1vw;
+  font-family: "PT Sans",sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.1vw;
+	pointer-events: none;
+  margin-left: 12vw;
+`
+
+const StyledP2SelectLabel = styled.label`
+  color: rgba(255, 255, 255, 0.9);
+	font-size: 1vw;
+  font-family: "PT Sans",sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.1vw;
+	pointer-events: none;
+  margin-right: 12vw;
 `
 
 const StyledP1Select = styled.select`
@@ -41,7 +69,8 @@ const StyledP1Select = styled.select`
 	border: none;
   border-radius: 1vw;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  margin: auto;
+  margin-top: 1vw;
+  cursor: pointer;
   &:focus{
     outline: none;
     border-bottom: 1px solid rgb(255,255,255);
@@ -61,7 +90,8 @@ const StyledP2Select = styled.select`
 	border: none;
   border-radius: 1vw;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  margin: auto;
+  margin-top: 1vw;
+  cursor: pointer;
   &:focus{
     outline: none;
     border-bottom: 1px solid rgb(255,255,255);
@@ -70,8 +100,10 @@ const StyledP2Select = styled.select`
 
 const StyledArrow = css`
   display: block;
-  width: 70%;
+  width: 50%;
   margin: auto;
+  padding-top: 0.6vw;
+  cursor: pointer;
 `
 
 const ReversedArrow = css`
@@ -89,9 +121,9 @@ export function ChooseCondition ({ p1CharacterHandler , p2CharacterHandler , rev
   return (<>
         <StyledCharacterPickWrapper>
           <StyledSelectWrapper>
-            <StyledSelectLabel>
+            <StyledP1SelectLabel>
               Pick 1P Character
-            </StyledSelectLabel>
+            </StyledP1SelectLabel>
             <StyledP1Select onChange={p1CharacterHandler}>
               <option value="Rashid">Rashid</option>
               <option value="Cammy">Cammy</option>
@@ -111,17 +143,17 @@ export function ChooseCondition ({ p1CharacterHandler , p2CharacterHandler , rev
               <option value="ChunLi">Chun-Li</option>
               <option value="Jamie">Jamie</option>
               <option value="Luke">Luke</option>
-              <option value="Ryu">Ryu</option>
+              <option value="Ryu" selected>Ryu</option>
             </StyledP1Select>
           </StyledSelectWrapper>
-          <StyledSelectWrapper>
+          <StyledArrowWrapper>
             <StyledSelectLabel>Which one is attacking?</StyledSelectLabel>
             <img src={Arrow} alt="Arrow" onClick={toggleReverse} css={[StyledArrow , reverseAttacker&&ReversedArrow]}/>
-          </StyledSelectWrapper>
+          </StyledArrowWrapper>
           <StyledSelectWrapper>
-            <StyledSelectLabel>
+            <StyledP2SelectLabel>
               Pick 2P Character
-            </StyledSelectLabel>
+            </StyledP2SelectLabel>
             <StyledP2Select onChange={p2CharacterHandler}>
               <option value="Rashid">Rashid</option>
               <option value="Cammy">Cammy</option>
@@ -141,7 +173,7 @@ export function ChooseCondition ({ p1CharacterHandler , p2CharacterHandler , rev
               <option value="ChunLi">Chun-Li</option>
               <option value="Jamie">Jamie</option>
               <option value="Luke">Luke</option>
-              <option value="Ryu">Ryu</option>
+              <option value="Ryu" selected>Ryu</option>
             </StyledP2Select>
           </StyledSelectWrapper>
       </StyledCharacterPickWrapper>

@@ -24,6 +24,8 @@ import { useState } from 'react'
 import { VSImageWrapper } from '../Components/FramesVS/VSImageWrapper'
 import { ChooseCondition } from '../Components/FramesVS/ChooseCondition'
 import { NarrowDownConditions } from '../Components/FramesVS/NarrowDownCondition'
+import { P1AttackingResult } from '../Components/FramesVS/P1AttackingResult'
+import { P2AttackingResult } from '../Components/FramesVS/P2AttackingResult'
 
 
 const StyledFramesVS = styled.div`
@@ -31,27 +33,39 @@ const StyledFramesVS = styled.div`
   color: white;
 `
 
-const StyledP1ConditionWrapper = styled.div`
-`
-
-const StyledP2ConditionWrapper = styled.div`
+const StyledViewResult = styled.h1`
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2vw;
+  text-align: center;
+  letter-spacing: 0.3em;
+  margin-top: 1vw;
+  padding: 0.3vw 0.3vw;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  cursor: pointer;
 `
 
 export default function FramesVS(){
-  const [p1Character ,setP1Character] = useState("Rashid")
+  const [ open , setOpen ] = useState(false)
+  const openHandler = (e:React.MouseEvent<HTMLInputElement>) => setOpen(!open)
+  const [p1Character ,setP1Character] = useState("Ryu")
   const p1CharacterHandler = (e:React.ChangeEvent<HTMLSelectElement>) => setP1Character(e.target.value)
-  const [p2Character , setP2Character ] = useState("Rashid")
+  const [p2Character , setP2Character ] = useState("Ryu")
   const p2CharacterHandler = (e:React.ChangeEvent<HTMLSelectElement>) => setP2Character(e.target.value)
   const [reverseAttacker , setReverseAttacker] = useState(false)
   const toggleReverse = () => setReverseAttacker(!reverseAttacker)
-  const [ p1Condition , setP1Condition] = useState("")
+  const [ p1Condition , setP1Condition] = useState("block")
   const p1ConditionHandler = (e:React.ChangeEvent<HTMLInputElement>) => setP1Condition(e.target.value)
   const [ p2Condition , setP2Condition] = useState("block")
   const p2ConditionHandler = (e:React.ChangeEvent<HTMLInputElement>) => setP2Condition(e.target.value)
-  const [ p1Moves , setP1Moves ] = useState(["通常技","特殊技","必殺技","スーパーアーツ","投げ"])
-  const p1MovesHandler = (e:React.ChangeEvent<HTMLInputElement>) => e.target.checked? setP1Moves([...p1Moves,e.target.value]) : setP1Moves(p1Moves.filter(p1Move => p1Move.match(e.target.value) === null))
-  const [ p2Moves , setP2Moves ] = useState(["通常技","特殊技","必殺技","スーパーアーツ","投げ"])
-  const p2MovesHandler = (e:React.ChangeEvent<HTMLInputElement>) => e.target.checked? setP2Moves([...p2Moves , e.target.value]) : setP2Moves(p2Moves.filter(p2Move => p2Move.match(e.target.value) === null))
+  const [ p1MoveKinds , setP1MoveKinds ] = useState(["通常技","特殊技","必殺技","スーパーアーツ","投げ"])
+  const p1MoveKindsHandler = (e:React.ChangeEvent<HTMLInputElement>) => e.target.checked? setP1MoveKinds([...p1MoveKinds,e.target.value]) : setP1MoveKinds(p1MoveKinds.filter(p1MoveKind => p1MoveKind.match(e.target.value) === null))
+  const [ p2MoveKinds , setP2MoveKinds ] = useState(["通常技","特殊技","必殺技","スーパーアーツ","投げ"])
+  const p2MoveKindsHandler = (e:React.ChangeEvent<HTMLInputElement>) => e.target.checked? setP2MoveKinds([...p2MoveKinds , e.target.value]) : setP2MoveKinds(p2MoveKinds.filter(p2MoveKind => p2MoveKind.match(e.target.value) === null))
+  const [p1Move , setP1Move ] = useState("")
+  const p1MoveHandler = (e:React.ChangeEvent<HTMLSelectElement>) => setP1Move(e.target.value)
+  const [p2Move , setP2Move ] = useState("")
+  const p2MoveHandler = (e:React.ChangeEvent<HTMLSelectElement>) => setP2Move(e.target.value)
   
   type CharacterData = {
     details:{
@@ -122,9 +136,32 @@ export default function FramesVS(){
                         toggleReverse={toggleReverse}/>}
       <NarrowDownConditions reverseAttacker={reverseAttacker}
                             p1ConditionHandler={p1ConditionHandler}
-                            p2MovesHandler={p2MovesHandler}
+                            p2ConditionHandler={p2ConditionHandler}
+                            p1MoveKindsHandler={p1MoveKindsHandler}
+                            p2MoveKindsHandler={p2MoveKindsHandler}
+                            pickedP1Moves={pickedP1Moves}
                             pickedP2Moves={pickedP2Moves}
-                            p2Moves={p2Moves}/>
+                            p1MoveKinds={p1MoveKinds}
+                            p2MoveKinds={p2MoveKinds}
+                            p1MoveHandler={p1MoveHandler}
+                            p2MoveHandler={p2MoveHandler}/>
+      <StyledViewResult onClick={openHandler}>VIEW RESULT!</StyledViewResult>
+      {open && !reverseAttacker&&
+      <>
+        <P1AttackingResult  p1Character={p1Character}
+                            p2Character={p2Character}
+                            p1Move={p1Move}
+                            pickedP1Moves={pickedP1Moves}
+                            p2Condition={p2Condition}/>
+      </>}
+      {open && reverseAttacker &&
+      <>
+        <P2AttackingResult  p1Character={p1Character}
+                            p2Character={p2Character}
+                            p1Condition={p1Condition}
+                            p2Move={p2Move}
+                            pickedP2Moves={pickedP2Moves}/>
+      </>}
     </StyledFramesVS>
   </>)
 }
