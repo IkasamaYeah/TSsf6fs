@@ -84,7 +84,9 @@ export function P1AttackingResult ({ p1Character , p2Character , p1Move , p2Cond
           </StyledP>
           {resultBlock}
       </StyledP2BlockResult>
-    </>)
+    </>
+    )
+
   } else if (p2Condition === "hit") {
     let resultHit;
     if ( pickedP1MoveData && pickedP1MoveData.hit === "Down"){
@@ -105,7 +107,9 @@ export function P1AttackingResult ({ p1Character , p2Character , p1Move , p2Cond
         </StyledP>
         {resultHit}
       </StyledP2HitResult>
-    </>)
+    </>
+    )
+
   } else if (p2Condition === "chit") {
     let resultCHit;
     if ( pickedP1MoveData && pickedP1MoveData.hit === "Down"){
@@ -126,7 +130,9 @@ export function P1AttackingResult ({ p1Character , p2Character , p1Move , p2Cond
         </StyledP>
         {resultCHit}
       </StyledP2CHitResult>
-      </>)
+    </>
+    )
+
   }else if (p2Condition === "pchit") {
     let resultPCHit;
     if ( pickedP1MoveData && pickedP1MoveData.hit === "Down"){
@@ -147,13 +153,17 @@ export function P1AttackingResult ({ p1Character , p2Character , p1Move , p2Cond
         </StyledP>
         {resultPCHit}
       </StyledP2PCHitResult>
-      </>)
+    </>
+    )
+
   } else {
     return (<>
       <StyledError>
         <StyledH1>Oops!Anexcepted error has occured</StyledH1>
         <StyledP>Please settle and check all conditions.</StyledP>
       </StyledError>
-    </>)
+    </>
+    )
+
   }
 }
