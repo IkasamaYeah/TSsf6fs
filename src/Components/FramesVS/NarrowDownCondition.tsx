@@ -42,7 +42,7 @@ const StyledAttackP1Label = css`
   border-radius: 1vw;
   margin-right: 0.5vw;
   cursor: pointer;
-  &:first-child{
+  &:first-of-type{
     margin-right: 0;
   }
 `
@@ -327,10 +327,12 @@ export function NarrowDownConditions ({reverseAttacker , p1ConditionHandler ,p2C
                 投げ
               </label>
           </div>
-          <StyledP2MovesSelect onChange={p2MoveHandler}>
+          <StyledP2MovesSelect defaultValue={""} onChange={p2MoveHandler}>
+            <option value="">Pick 2P Move</option>
             {pickedP2Moves?.filter(pickedP2Move => p2MoveKinds.includes(pickedP2Move.type))
-            .map(pickedP2Move =>
+            .map(pickedP2Move => (<>
               <option value={pickedP2Move.movesName} >{pickedP2Move.movesName}</option>
+              </>)
               )}
           </StyledP2MovesSelect>
         </StyledP2AttackConditionWrapper>
@@ -387,10 +389,12 @@ export function NarrowDownConditions ({reverseAttacker , p1ConditionHandler ,p2C
                 投げ
               </label>
           </div>
-          <StyledP1MovesSelect onChange={p1MoveHandler}>
+          <StyledP1MovesSelect defaultValue={""} onChange={p1MoveHandler}>
+            <option value="">Pick 1P Move</option>
             {pickedP1Moves?.filter(pickedP1Move => p1MoveKinds.includes(pickedP1Move.type))
-            .map(pickedP1Move =>
+            .map(pickedP1Move =>(<>
               <option value={pickedP1Move.movesName}>{pickedP1Move.movesName}</option>
+              </>)
               )}
           </StyledP1MovesSelect>
         </StyledP1AttackConditionWrapper>

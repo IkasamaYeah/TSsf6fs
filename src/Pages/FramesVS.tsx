@@ -54,9 +54,9 @@ export default function FramesVS(){
   const p2CharacterHandler = (e:React.ChangeEvent<HTMLSelectElement>) => setP2Character(e.target.value)
   const [reverseAttacker , setReverseAttacker] = useState(false)
   const toggleReverse = () => setReverseAttacker(!reverseAttacker)
-  const [ p1Condition , setP1Condition] = useState("block")
+  const [ p1Condition , setP1Condition] = useState("")
   const p1ConditionHandler = (e:React.ChangeEvent<HTMLInputElement>) => setP1Condition(e.target.value)
-  const [ p2Condition , setP2Condition] = useState("block")
+  const [ p2Condition , setP2Condition] = useState("")
   const p2ConditionHandler = (e:React.ChangeEvent<HTMLInputElement>) => setP2Condition(e.target.value)
   const [ p1MoveKinds , setP1MoveKinds ] = useState(["通常技","特殊技","必殺技","スーパーアーツ","投げ"])
   const p1MoveKindsHandler = (e:React.ChangeEvent<HTMLInputElement>) => e.target.checked? setP1MoveKinds([...p1MoveKinds,e.target.value]) : setP1MoveKinds(p1MoveKinds.filter(p1MoveKind => p1MoveKind.match(e.target.value) === null))
@@ -124,6 +124,8 @@ export default function FramesVS(){
   const pickedP2Details = selectedP2CharacterData.details
   const pickedP2Moves = selectedP2CharacterData.moves
 
+  console.log({p1Character},{p2Character},{pickedP1Details},{pickedP1Moves},{pickedP2Details},{pickedP2Moves})
+
   return(<>
     <StyledFramesVS>
       {pickedP1Details&&pickedP2Details&&
@@ -152,6 +154,7 @@ export default function FramesVS(){
                             p2Character={p2Character}
                             p1Move={p1Move}
                             pickedP1Moves={pickedP1Moves}
+                            pickedP2Moves={pickedP2Moves}
                             p2Condition={p2Condition}/>
       </>}
       {open && reverseAttacker &&
@@ -160,6 +163,7 @@ export default function FramesVS(){
                             p2Character={p2Character}
                             p1Condition={p1Condition}
                             p2Move={p2Move}
+                            pickedP1Moves={pickedP1Moves}
                             pickedP2Moves={pickedP2Moves}/>
       </>}
     </StyledFramesVS>

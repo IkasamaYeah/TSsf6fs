@@ -153,7 +153,7 @@ const StyledHeaderLi = styled.li`
 
   @media(max-width:900px){
     margin-top:10px;
-    :first-child{
+    :first-of-type{
       margin-top: 0px;
     }
   }
@@ -174,10 +174,10 @@ export function Header () {
           </StyledHumbergerWrapper>
             <nav css={[StyledHeaderNav , open && isShow]}>
               <StyledHeaderUl>
-                <StyledHeaderLi><Link to="/characters">Characters</Link></StyledHeaderLi>
-                <StyledHeaderLi><Link to="/framesvs">FramesVS</Link></StyledHeaderLi>
-                <StyledHeaderLi><Link to="/tier">Tier</Link></StyledHeaderLi>
-                <StyledHeaderLi><Link to="/tips">Tips</Link></StyledHeaderLi>
+                <StyledHeaderLi key="Characters"><Link to="/characters">Characters</Link></StyledHeaderLi>
+                <StyledHeaderLi key="FramesVS"><Link to="/framesvs">FramesVS</Link></StyledHeaderLi>
+                <StyledHeaderLi key="Tier"><Link to="/tier">Tier</Link></StyledHeaderLi>
+                <StyledHeaderLi key="tips"><Link to="/tips">Tips</Link></StyledHeaderLi>
               </StyledHeaderUl>
             </nav>
         </StyledHeaderContent>

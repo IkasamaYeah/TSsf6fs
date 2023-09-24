@@ -124,7 +124,7 @@ export function ChooseCondition ({ p1CharacterHandler , p2CharacterHandler , rev
             <StyledP1SelectLabel>
               Pick 1P Character
             </StyledP1SelectLabel>
-            <StyledP1Select onChange={p1CharacterHandler}>
+            <StyledP1Select defaultValue={"Ryu"} onChange={p1CharacterHandler}>
               <option value="Rashid">Rashid</option>
               <option value="Cammy">Cammy</option>
               <option value="Lily">Lily</option>
@@ -143,7 +143,7 @@ export function ChooseCondition ({ p1CharacterHandler , p2CharacterHandler , rev
               <option value="ChunLi">Chun-Li</option>
               <option value="Jamie">Jamie</option>
               <option value="Luke">Luke</option>
-              <option value="Ryu" selected>Ryu</option>
+              <option value="Ryu">Ryu</option>
             </StyledP1Select>
           </StyledSelectWrapper>
           <StyledArrowWrapper>
@@ -154,7 +154,7 @@ export function ChooseCondition ({ p1CharacterHandler , p2CharacterHandler , rev
             <StyledP2SelectLabel>
               Pick 2P Character
             </StyledP2SelectLabel>
-            <StyledP2Select onChange={p2CharacterHandler}>
+            <StyledP2Select defaultValue={"Ryu"} onChange={p2CharacterHandler}>
               <option value="Rashid">Rashid</option>
               <option value="Cammy">Cammy</option>
               <option value="Lily">Lily</option>
@@ -173,7 +173,7 @@ export function ChooseCondition ({ p1CharacterHandler , p2CharacterHandler , rev
               <option value="ChunLi">Chun-Li</option>
               <option value="Jamie">Jamie</option>
               <option value="Luke">Luke</option>
-              <option value="Ryu" selected>Ryu</option>
+              <option value="Ryu">Ryu</option>
             </StyledP2Select>
           </StyledSelectWrapper>
       </StyledCharacterPickWrapper>
