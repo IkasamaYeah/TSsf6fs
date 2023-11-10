@@ -8,7 +8,7 @@ type Props = {
 const StyledOpenListWrapper = styled.div`
   position: relative;
   background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.3));
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #fffb0092;
   padding: 10px;
   &:hover{
     background-color:rgba(55,55,55,0.5);

@@ -5,16 +5,42 @@ import { css } from "@emotion/react"
 import { useState } from "react"
 
 const StyledNarrowDownWrapper = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 25vw 25vw;
+  column-gap: 15vw;
   justify-content: space-between;
-  margin-left: 8vw;
-  margin-right: 8vw;
+  margin-left: 15vw;
+  margin-right: 15vw;
+  align-items: center;
 `
 
 const StyledP1AttackConditionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+  background:rgba(0, 0, 0, 0.6);
+  padding: 1vw;
+  &::before,
+  &:after{
+    content: '';
+    width: 1vw;
+    height: 2vw;
+    position: absolute;
+    display: inline-block;
+  }
+  &::before{
+    border-left: solid 1px #fffb0092;
+    border-top: solid 1px #fffb0092;
+    top: 0;
+    left: 0;
+  }
+  &::after{
+    border-right: solid 1px #fffb0092;
+    border-bottom: solid 1px #fffb0092;
+    bottom: 0;
+    right: 0;
+  }
 `
 
 const StyledP1BlockConditionWrapper = styled.div`
@@ -22,7 +48,29 @@ const StyledP1BlockConditionWrapper = styled.div`
   grid-template-columns: 1fr 1fr;
   column-gap: 0.5vw;
   row-gap: 0.5vw;
-  margin-left: 2.8vw;
+  position: relative;
+  background:rgba(0, 0, 0, 0.6);
+  padding: 1vw;
+  &::before,
+  &:after{
+    content: '';
+    width: 1vw;
+    height: 2vw;
+    position: absolute;
+    display: inline-block;
+  }
+  &::before{
+    border-left: solid 1px #fffb0092;
+    border-top: solid 1px #fffb0092;
+    top: 0;
+    left: 0;
+  }
+  &::after{
+    border-right: solid 1px #fffb0092;
+    border-bottom: solid 1px #fffb0092;
+    bottom: 0;
+    right: 0;
+  }
 `
 
 const StyledInput = styled.input`
@@ -35,16 +83,13 @@ const StyledAttackP1Label = css`
   color: white;
   padding: 1vw;
   text-align: center;
-  font-size: 1.5vw;
-  width: 5vw;
-  height: 3.3vw;
+  font-size: 1vw;
+  width: 4vw;
+  height: 3vw;
   border: none;
   border-radius: 1vw;
   margin-right: 0.5vw;
   cursor: pointer;
-  &:first-of-type{
-    margin-right: 0;
-  }
 `
 
 const StyledBlockP1Label = css`
@@ -56,7 +101,7 @@ const StyledBlockP1Label = css`
   font-size: 1vw;
   width: 10vw;
   border: none;
-  border-radius: 15px;
+  border-radius: 1vw;
   line-height: 3vw;
   cursor: pointer;
 `
@@ -75,14 +120,59 @@ const StyledP2AttackConditionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+  background:rgba(0, 0, 0, 0.6);
+  padding: 1vw;
+  &::before,
+  &:after{
+    content: '';
+    width: 1vw;
+    height: 2vw;
+    position: absolute;
+    display: inline-block;
+  }
+  &::before{
+    border-left: solid 1px #fffb0092;
+    border-top: solid 1px #fffb0092;
+    top: 0;
+    left: 0;
+  }
+  &::after{
+    border-right: solid 1px #fffb0092;
+    border-bottom: solid 1px #fffb0092;
+    bottom: 0;
+    right: 0;
+  }
 `
 
 const StyledP2BlockConditionWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 0.5vw;
-  row-gap: 0.5vw;
-  margin-right: 3vw;
+  row-gap: 0.5vw;;
+  position: relative;
+  background:rgba(0, 0, 0, 0.6);
+  padding: 1vw;
+  &::before,
+  &:after{
+    content: '';
+    width: 1vw;
+    height: 2vw;
+    position: absolute;
+    display: inline-block;
+  }
+  &::before{
+    border-left: solid 1px #fffb0092;
+    border-top: solid 1px #fffb0092;
+    top: 0;
+    left: 0;
+  }
+  &::after{
+    border-right: solid 1px #fffb0092;
+    border-bottom: solid 1px #fffb0092;
+    bottom: 0;
+    right: 0;
+  }
 `
 
 const StyledAttackP2Label = css`
@@ -91,12 +181,12 @@ const StyledAttackP2Label = css`
   color: white;
   padding: 1vw;
   text-align: center;
-  font-size: 1.5vw;
-  width: 5vw;
-  height: 3.3vw;
+  font-size: 1vw;
+  width: 4vw;
+  height: 3vw;
   border: none;
   border-radius: 1vw;
-  margin-left: 0.5vw;
+  margin-right: 0.5vw;
   cursor: pointer;
 `
 
@@ -125,112 +215,175 @@ const StyledCheckedBlockP2Label = css`
 `
 
 const StyledP1MovesSelect = styled.select`
+  font-family: 'M PLUS 1p', sans-serif;
   background-color: rgba( 0, 102, 153,0.7);
   color: white;
   border: none;
   border-radius: 2vw;
   text-align: center;
-  width: 27vw;
+  width: 22.5vw;
   padding: 0.5vw;
   font-size: 1.5vw;
   margin-top: 1vw;
-  margin-right: 3.9vw;
 `
 
 const StyledP2MovesSelect = styled.select`
+  font-family: 'M PLUS 1p', sans-serif;
   background-color: rgba( 215, 29, 59,0.7);
   color: white;
   border: none;
   border-radius: 2vw;
   text-align: center;
-  width: 27vw;
+  width: 22.5vw;
   padding: 0.5vw;
   font-size: 1.5vw;
   margin-top: 1vw;
-  margin-left: 0.7vw;
 `
 
 const StyledP1AttackArrow = styled.label`
-  display: inline-block;
+  display: flex;
   color: rgba(255, 255, 255, 0.9);
-	font-size: 1vw;
-  font-family: "PT Sans",sans-serif;
+	font-size: 0.8vw;
   font-weight: bold;
   letter-spacing: 0.1vw;
 	pointer-events: none;
   line-height: 2vw;
-  margin-right: 5.5vw;
-  margin-top: 3vw;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  position: relative;
+  background:rgba(0, 0, 0, 0.6);
+  padding: 1vw;
+  height: 50%;
+  &::before,
+  &:after{
+    content: '';
+    width: 1vw;
+    height: 2vw;
+    position: absolute;
+    display: inline-block;
+  }
+  &::before{
+    border-left: solid 1px #fffb0092;
+    border-top: solid 1px #fffb0092;
+    top: 0;
+    left: 0;
+  }
+  &::after{
+    border-right: solid 1px #fffb0092;
+    border-bottom: solid 1px #fffb0092;
+    bottom: 0;
+    right: 0;
+  }
+  @media (max-width: 900px){
+    display: none;
+  }
 `
 
 const StyledP2AttackArrow = styled.label`
-  display: inline-block;
+  display: flex;
   color: rgba(255, 255, 255, 0.9);
-	font-size: 1vw;
-  font-family: "PT Sans",sans-serif;
+	font-size: 0.8vw;
   font-weight: bold;
   letter-spacing: 0.1vw;
 	pointer-events: none;
   line-height: 2vw;
-  margin-left: 5.5vw;
-  margin-top: 3vw;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  height: 50%;
+  position: relative;
+  background:rgba(0, 0, 0, 0.6);
+  padding: 1vw;
+  &::before,
+  &:after{
+    content: '';
+    width: 1vw;
+    height: 2vw;
+    position: absolute;
+    display: inline-block;
+  }
+  &::before{
+    border-left: solid 1px #fffb0092;
+    border-top: solid 1px #fffb0092;
+    top: 0;
+    left: 0;
+  }
+  &::after{
+    border-right: solid 1px #fffb0092;
+    border-bottom: solid 1px #fffb0092;
+    bottom: 0;
+    right: 0;
+  }
+  @media (max-width: 900px){
+    display: none;
+  }
 `
 
 
 type Props = {
   reverseAttacker:boolean
-  p1ConditionHandler:(e:React.ChangeEvent<HTMLInputElement>) => void
-  p2ConditionHandler:(e:React.ChangeEvent<HTMLInputElement>) => void
-  p1MoveKindsHandler:(e:React.ChangeEvent<HTMLInputElement>) => void
-  p2MoveKindsHandler:(e:React.ChangeEvent<HTMLInputElement>) => void
-  pickedP1Moves:{
-    [key:string]: string|string[]|number|number[],
-    type:string
-    commands:string[]
-    movesName:string
-    movesCondition:string
-    startup:any
-    active:any
-    recovery:any
-    hit:any
-    block:any
-    cancel:any
-    tips:string[]
-    hitboxImage:string 
-  }[]
-  pickedP2Moves:{
-    [key:string]: string|string[]|number|number[],
-    type:string
-    commands:string[]
-    movesName:string
-    movesCondition:string
-    startup:any
-    active:any
-    recovery:any
-    hit:any
-    block:any
-    cancel:any
-    tips:string[]
-    hitboxImage:string 
-  }[]
-  p1MoveKinds:string[]
-  p2MoveKinds:string[]
-  p1MoveHandler:(e:React.ChangeEvent<HTMLSelectElement>) => void
-  p2MoveHandler:(e:React.ChangeEvent<HTMLSelectElement>) => void
+  ConditionHandler:{
+    p1ConditionHandler:(e:React.ChangeEvent<HTMLInputElement>) => void
+    p2ConditionHandler:(e:React.ChangeEvent<HTMLInputElement>) => void
+  }
+  MoveKindsHandler:{
+    p1MoveKindsHandler:(e:React.ChangeEvent<HTMLInputElement>) => void
+    p2MoveKindsHandler:(e:React.ChangeEvent<HTMLInputElement>) => void
+  }
+  CharacterMoves:{
+    pickedP1Moves:{
+      [key:string]: string|string[]|number|number[],
+      type:string
+      commands:string[]
+      movesName:string
+      movesCondition:string
+      startup:any
+      active:any
+      recovery:any
+      hit:any
+      block:any
+      cancel:any
+      tips:string[]
+      hitboxImage:string 
+    }[]
+    pickedP2Moves:{
+      [key:string]: string|string[]|number|number[],
+      type:string
+      commands:string[]
+      movesName:string
+      movesCondition:string
+      startup:any
+      active:any
+      recovery:any
+      hit:any
+      block:any
+      cancel:any
+      tips:string[]
+      hitboxImage:string 
+    }[]
+  }
+  MoveKinds:{
+    p1MoveKinds:string[]
+    p2MoveKinds:string[]
+  }
+  MoveHandler:{
+    p1MoveHandler:(e:React.ChangeEvent<HTMLSelectElement>) => void
+    p2MoveHandler:(e:React.ChangeEvent<HTMLSelectElement>) => void
+  }
+
 }
 
 
-export function NarrowDownConditions ({reverseAttacker , p1ConditionHandler ,p2ConditionHandler , p1MoveKindsHandler , p2MoveKindsHandler , pickedP1Moves , pickedP2Moves , p1MoveKinds , p2MoveKinds , p1MoveHandler , p2MoveHandler}:Props) {
+export function NarrowDownConditions ({reverseAttacker , ConditionHandler , MoveKindsHandler , CharacterMoves , MoveKinds , MoveHandler}:Props) {
   const [selectedRadio , setSelectedRadio ] = useState("")
   const selectRadioHandler = (e:React.ChangeEvent<HTMLInputElement>) => setSelectedRadio(e.target.value)
   const p1RadioHandler = (e:React.ChangeEvent<HTMLInputElement>) => {
-    p1ConditionHandler(e);
+    ConditionHandler.p1ConditionHandler(e);
     selectRadioHandler(e);
   }
   const p2RadioHandler = (e:React.ChangeEvent<HTMLInputElement>) => {
-    p2ConditionHandler(e);
+    ConditionHandler.p2ConditionHandler(e);
     selectRadioHandler(e);
   }
 
@@ -276,60 +429,57 @@ export function NarrowDownConditions ({reverseAttacker , p1ConditionHandler ,p2C
                 PC
               </label>
         </StyledP1BlockConditionWrapper>
-        <StyledP2AttackArrow>
-          Settle conditions
-        </StyledP2AttackArrow>
         <StyledP2AttackConditionWrapper>
           <div>
             <StyledInput  type='checkbox'
                             value='通常技'
                             id='normal'
-                            onChange={p2MoveKindsHandler}
+                            onChange={MoveKindsHandler.p2MoveKindsHandler}
                             defaultChecked
             />
-              <label css={p2MoveKinds.includes("通常技")? StyledCheckedAttackP2Label:StyledAttackP2Label} htmlFor='normal'>
+              <label css={MoveKinds.p2MoveKinds.includes("通常技")? StyledCheckedAttackP2Label:StyledAttackP2Label} htmlFor='normal'>
                 通常
               </label>
             <StyledInput  type='checkbox'
                             value='特殊技'
                             id='unique'
-                            onChange={p2MoveKindsHandler}
+                            onChange={MoveKindsHandler.p2MoveKindsHandler}
                             defaultChecked
             />
-              <label css={p2MoveKinds.includes("特殊技")? StyledCheckedAttackP2Label:StyledAttackP2Label} htmlFor='unique'>
+              <label css={MoveKinds.p2MoveKinds.includes("特殊技")? StyledCheckedAttackP2Label:StyledAttackP2Label} htmlFor='unique'>
                 特殊
               </label>
             <StyledInput  type='checkbox'
                             value='必殺技'
                             id='special'
-                            onChange={p2MoveKindsHandler}
+                            onChange={MoveKindsHandler.p2MoveKindsHandler}
                             defaultChecked
             />
-              <label css={p2MoveKinds.includes("必殺技")? StyledCheckedAttackP2Label:StyledAttackP2Label} htmlFor='special'>
+              <label css={MoveKinds.p2MoveKinds.includes("必殺技")? StyledCheckedAttackP2Label:StyledAttackP2Label} htmlFor='special'>
                 必殺
               </label>
             <StyledInput  type='checkbox'
                             value='スーパーアーツ'
                             id='sa'
-                            onChange={p2MoveKindsHandler}
+                            onChange={MoveKindsHandler.p2MoveKindsHandler}
                             defaultChecked
             />
-              <label css={p2MoveKinds.includes("スーパーアーツ")? StyledCheckedAttackP2Label:StyledAttackP2Label} htmlFor='sa'>
+              <label css={MoveKinds.p2MoveKinds.includes("スーパーアーツ")? StyledCheckedAttackP2Label:StyledAttackP2Label} htmlFor='sa'>
                 SA
               </label>
             <StyledInput  type='checkbox'
                             value='投げ'
                             id='throw'
-                            onChange={p2MoveKindsHandler}
+                            onChange={MoveKindsHandler.p2MoveKindsHandler}
                             defaultChecked
             />
-              <label css={p2MoveKinds.includes("投げ")? StyledCheckedAttackP2Label:StyledAttackP2Label} htmlFor='throw'>
+              <label css={MoveKinds.p2MoveKinds.includes("投げ")? StyledCheckedAttackP2Label:StyledAttackP2Label} htmlFor='throw'>
                 投げ
               </label>
           </div>
-          <StyledP2MovesSelect defaultValue={""} onChange={p2MoveHandler}>
+          <StyledP2MovesSelect defaultValue={""} onChange={MoveHandler.p2MoveHandler}>
             <option value="">Pick 2P Move</option>
-            {pickedP2Moves?.filter(pickedP2Move => p2MoveKinds.includes(pickedP2Move.type))
+            {CharacterMoves.pickedP2Moves?.filter(pickedP2Move => MoveKinds.p2MoveKinds.includes(pickedP2Move.type))
             .map(pickedP2Move => (<>
               <option value={pickedP2Move.movesName} >{pickedP2Move.movesName}</option>
               </>)
@@ -346,61 +496,58 @@ export function NarrowDownConditions ({reverseAttacker , p1ConditionHandler ,p2C
             <StyledInput  type='checkbox'
                             value='通常技'
                             id='normal'
-                            onChange={p1MoveKindsHandler}
+                            onChange={MoveKindsHandler.p1MoveKindsHandler}
                             defaultChecked
             />
-              <label css={p1MoveKinds.includes("通常技")? StyledCheckedAttackP1Label:StyledAttackP1Label} htmlFor='normal'>
+              <label css={MoveKinds.p1MoveKinds.includes("通常技")? StyledCheckedAttackP1Label:StyledAttackP1Label} htmlFor='normal'>
                 通常
               </label>
             <StyledInput  type='checkbox'
                             value='特殊技'
                             id='unique'
-                            onChange={p1MoveKindsHandler}
+                            onChange={MoveKindsHandler.p1MoveKindsHandler}
                             defaultChecked
             />
-              <label css={p1MoveKinds.includes("特殊技")? StyledCheckedAttackP1Label:StyledAttackP1Label} htmlFor='unique'>
+              <label css={MoveKinds.p1MoveKinds.includes("特殊技")? StyledCheckedAttackP1Label:StyledAttackP1Label} htmlFor='unique'>
                 特殊
               </label>
             <StyledInput  type='checkbox'
                             value='必殺技'
                             id='special'
-                            onChange={p1MoveKindsHandler}
+                            onChange={MoveKindsHandler.p1MoveKindsHandler}
                             defaultChecked
             />
-              <label css={p1MoveKinds.includes("必殺技")? StyledCheckedAttackP1Label:StyledAttackP1Label} htmlFor='special'>
+              <label css={MoveKinds.p1MoveKinds.includes("必殺技")? StyledCheckedAttackP1Label:StyledAttackP1Label} htmlFor='special'>
                 必殺
               </label>
             <StyledInput  type='checkbox'
                             value='スーパーアーツ'
                             id='sa'
-                            onChange={p1MoveKindsHandler}
+                            onChange={MoveKindsHandler.p1MoveKindsHandler}
                             defaultChecked
             />
-              <label css={p1MoveKinds.includes("スーパーアーツ")? StyledCheckedAttackP1Label:StyledAttackP1Label} htmlFor='sa'>
+              <label css={MoveKinds.p1MoveKinds.includes("スーパーアーツ")? StyledCheckedAttackP1Label:StyledAttackP1Label} htmlFor='sa'>
                 SA
               </label>
             <StyledInput  type='checkbox'
                             value='投げ'
                             id='throw'
-                            onChange={p1MoveKindsHandler}
+                            onChange={MoveKindsHandler.p1MoveKindsHandler}
                             defaultChecked
             />
-              <label css={p1MoveKinds.includes("投げ")? StyledCheckedAttackP1Label:StyledAttackP1Label} htmlFor='throw'>
+              <label css={MoveKinds.p1MoveKinds.includes("投げ")? StyledCheckedAttackP1Label:StyledAttackP1Label} htmlFor='throw'>
                 投げ
               </label>
           </div>
-          <StyledP1MovesSelect defaultValue={""} onChange={p1MoveHandler}>
-            <option value="">Pick 1P Move</option>
-            {pickedP1Moves?.filter(pickedP1Move => p1MoveKinds.includes(pickedP1Move.type))
+          <StyledP1MovesSelect defaultValue={""} onChange={MoveHandler.p1MoveHandler}>
+            <option value="">技の選択</option>
+            {CharacterMoves.pickedP1Moves?.filter(pickedP1Move => MoveKinds.p1MoveKinds.includes(pickedP1Move.type))
             .map(pickedP1Move =>(<>
               <option value={pickedP1Move.movesName}>{pickedP1Move.movesName}</option>
               </>)
               )}
           </StyledP1MovesSelect>
         </StyledP1AttackConditionWrapper>
-        <StyledP1AttackArrow>
-          Settle conditions<br/>and view result below
-        </StyledP1AttackArrow>
         <StyledP2BlockConditionWrapper>
             <StyledInput  type="radio"
                             name="conditions"

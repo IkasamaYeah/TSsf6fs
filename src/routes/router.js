@@ -25,12 +25,6 @@ export const router = createBrowserRouter([
         path:"/framesvs",
         element:<FramesVS/>
       },{
-        path:"/tier",
-        element:<Tier/>
-      },{
-        path:"tips",
-        element:<Tips/>
-      },{
         path:"/about",
         element:<CharacterAbout/>
       }]

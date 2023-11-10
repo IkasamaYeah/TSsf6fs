@@ -37,6 +37,9 @@ const StyledTopImageWrapper = styled.div`
   height: 100%;
   z-index: 0;
   overflow: hidden;
+  @media(max-width:900px){
+    left: 40vw;
+  }
 `
 
 const StyledTopImage = styled.img`
@@ -61,30 +64,113 @@ const StyledCharacterIndex = styled.h1`
   height: 1px;
   margin-top: 0.6vw;
   }
+  @media(max-width:900px){
+    font-size: 2vw;
+  }
 `
 
 const StyledCharacterName = styled.h2`
   position: relative;
   font-size: min(10vw,200px);
   z-index: 1;
-  margin-top: 12vw;
+  margin-top: 4vw;
+  position: relative;
+  padding: 2vw;
+  background:rgba(0, 0, 0, 0.6);
+  &::before,
+  &:after{
+    content: '';
+    width: 1vw;
+    height: 2vw;
+    position: absolute;
+    display: inline-block;
+  }
+  &::before{
+    border-left: solid 1px #fffb0092;
+    border-top: solid 1px #fffb0092;
+    top: 0;
+    left: 0;
+  }
+  &::after{
+    border-right: solid 1px #fffb0092;
+    border-bottom: solid 1px #fffb0092;
+    bottom: 0;
+    right: 0;
+  }
+  @media (max-width:900px){
+    margin-top: 0;
+    font-size: 15vw;
+    letter-spacing: 1vw;
+  }
 `
 
 const StyledCharacterTips = styled.section`
   position: relative;
   z-index: 10;
+  margin-top: 3vw;
   @media(max-width:900px){
     display: none;
   }
 `
 
+const StyledStrongpoints = styled.div`
+  position: relative;
+  font-size: min(10vw,200px);
+  z-index: 1;
+  position: relative;
+  padding: 2vw;
+  background:rgba(0, 0, 0, 0.6);
+  &::before,
+  &:after{
+    content: '';
+    width: 1vw;
+    height: 2vw;
+    position: absolute;
+    display: inline-block;
+  }
+  &::before{
+    border-left: solid 1px #fffb0092;
+    border-top: solid 1px #fffb0092;
+    top: 0;
+    left: 0;
+  }
+  &::after{
+    border-right: solid 1px #fffb0092;
+    border-bottom: solid 1px #fffb0092;
+    bottom: 0;
+    right: 0;
+  }
+`
+
 const StyledWeakpoints = styled.div`
-  margin-top: 8vw;
+  margin-top: 4vw;
+  position: relative;
+  padding: 1vw 2vw 1vw 2vw;
+  background:rgba(0, 0, 0, 0.6);
+  &::before,
+  &:after{
+    content: '';
+    width: 1vw;
+    height: 2vw;
+    position: absolute;
+    display: inline-block;
+  }
+  &::before{
+    border-left: solid 1px #fffb0092;
+    border-top: solid 1px #fffb0092;
+    top: 0;
+    left: 0;
+  }
+  &::after{
+    border-right: solid 1px #fffb0092;
+    border-bottom: solid 1px #fffb0092;
+    bottom: 0;
+    right: 0;
+  }
 `
 
 const StyledTipsH3 = styled.h3`
   font-size: min(3vw,200px);
-  margin-top: 4vw;
 `
 
 const StyledTipsParagram = styled.p`
@@ -100,10 +186,16 @@ const StyledTipsParagram = styled.p`
   position: absolute;
   left: 0.8vw;
   display: block;
-  background-color: #ffffff;
+  background-color: #fffb0092;
   width: min(2vw,50px);
   height: 1px;
   margin-top: 0.2vw;
+  }
+`
+
+const StyledAboutSection = styled.section`
+  @media(max-width:900px){
+    margin:5vw 0 0 8vw;
   }
 `
 
@@ -111,17 +203,17 @@ export function CharacterDetails ({ details }:Details) {
   return (<>
       <StyledArticle key={details.name}>
         <StyledAbout>
-          <section>
+          <StyledAboutSection>
             <StyledCharacterIndex>CHARACTER</StyledCharacterIndex>
             <StyledCharacterName>{details.name}</StyledCharacterName>
-          </section>
+          </StyledAboutSection>
           <StyledCharacterTips>
-            <div className='strongpoints'>
+            <StyledStrongpoints>
               <StyledTipsH3>STRONG POINTS</StyledTipsH3>
               <StyledTipsParagram>{details.strongpoints[0]}</StyledTipsParagram>
               <StyledTipsParagram>{details.strongpoints[1]}</StyledTipsParagram>
               <StyledTipsParagram>{details.strongpoints[2]}</StyledTipsParagram>
-            </div>
+            </StyledStrongpoints>
             <StyledWeakpoints>
               <StyledTipsH3>WEAK POINTS</StyledTipsH3>
               <StyledTipsParagram>{details.weakpoints[0]}</StyledTipsParagram>

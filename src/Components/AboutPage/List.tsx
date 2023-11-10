@@ -24,8 +24,7 @@ type Props = {
   sortNums:string,
 }
 
-const StyledCommandsAndHitboxWrapper = styled.div`
-  position: relative;
+const StyledTableWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 2fr;
   cursor:default;
@@ -155,20 +154,40 @@ const StyledHitData = styled.th`
 
 const StyledHitboxWrapper = styled.div`
   position: sticky;
-  top: 80px;
+  width: 100%;
+  top: 60px;
+  z-index: 30;
+  @media(max-width:900px){
+    position: fixed;
+    top:0;
+  }
 `
 
 const StyledHitboxTips = styled.p`
   font-size: min(5vw,60px);
   text-align: center;
+  @media(max-width:900px){
+    display: none;
+  }
+`
+
+const StyledTable = styled.table`
+  width: 100%;
+`
+
+const StyledFontsRed = styled.span`
+  color: red;
+`
+
+const StyledFontsGreen = styled.span`
+  color: green;
 `
 
 export function List ({ data , moveKinds , frameKinds , amounts , highLow , sortNums }:Props) {
   const [ hitbox , setHitbox ] = useState("")
   return (<>
-    <StyledCommandsAndHitboxWrapper>
-      <div className='frames-table'>
-        <table className='frames'>
+    <StyledTableWrapper>
+        <StyledTable>
           <thead>
             <tr className='frames-cell-head'>
               <StyledMovesNameHeader>
@@ -231,15 +250,14 @@ export function List ({ data , moveKinds , frameKinds , amounts , highLow , sort
                 </StyledBlockData>
               </tr>)}
           </tbody>
-        </table>
-      </div>
-      <div>
-        <StyledHitboxWrapper>
-          <img src={hitbox} alt='hitbox' />
-          <StyledHitboxTips>GREEN Box means Hurtbox</StyledHitboxTips>
-          <StyledHitboxTips>RED Box means Hitbox</StyledHitboxTips>
-        </StyledHitboxWrapper>
-      </div>
-    </StyledCommandsAndHitboxWrapper>
+        </StyledTable>
+        <div>
+          <StyledHitboxWrapper>
+            <img src={hitbox} alt='hitbox' />
+            <StyledHitboxTips><StyledFontsGreen>GREEN Box</StyledFontsGreen> means Hurtbox</StyledHitboxTips>
+            <StyledHitboxTips><StyledFontsRed>RED Box</StyledFontsRed> means Hitbox</StyledHitboxTips>
+          </StyledHitboxWrapper>
+        </div>
+    </StyledTableWrapper>
   </>)
 }

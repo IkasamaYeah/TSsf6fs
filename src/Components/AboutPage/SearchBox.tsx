@@ -11,7 +11,7 @@ type Props = {
 
 const StyledFilterWrapper = styled.div`
   padding-top: 10px;
-  background: linear-gradient(90deg,rgba(0, 0, 0, 0),rgba(19, 18, 124, 0.6) ,rgba(19, 17, 126, 0.6) ,rgba(3, 0, 160, 0.6),rgba(19, 17, 126, 0.6) ,rgba(19, 18, 124, 0.6) ,rgba(0, 0, 0, 0));
+  background: linear-gradient(90deg,rgba(0, 0, 0, 0),rgba(0, 0, 20, 0.6) ,rgba(0, 0, 50, 0.6) ,rgba(0, 0, 80, 0.6),rgba(0, 0, 50, 0.6) ,rgba(0, 0, 20, 0.6) ,rgba(0, 0, 0, 0));
   position: relative;
   z-index: 10;
 `
@@ -20,13 +20,14 @@ const StyledFilterCheckbox = styled.div`
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: bold;
   display: flex;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
   justify-content:center;
-  font-size: 1.2vw;
+  font-size: 1vw;
 `
 
 const StyledCheckboxWrapper = styled.div`
+  display: flex;
   padding-left: 3vw;
   &:first-child{
     padding-left: 0;
@@ -34,8 +35,10 @@ const StyledCheckboxWrapper = styled.div`
 `
 
 const StyledSortWrapper = styled.div`
-  padding-bottom: 15px;
+  display: flex;
+  padding-bottom: 1.5vw;
   text-align: center;
+  justify-content: center;
 `
 
 export function SearchBox ({ handleOnChangeMoveKinds , handleOnChangeFrameKinds , handleOnChangeAmounts , handleOnChangeHighLow , handleOnChangeSortNums }:Props) {
@@ -56,7 +59,7 @@ export function SearchBox ({ handleOnChangeMoveKinds , handleOnChangeFrameKinds 
         </StyledCheckboxWrapper>
         <StyledCheckboxWrapper>
           <input type='checkbox' value='スーパーアーツ' id='sa' onChange={handleOnChangeMoveKinds} defaultChecked/>
-          <label htmlFor='sa'>スーパーアーツ</label>
+          <label htmlFor='sa'>SA</label>
         </StyledCheckboxWrapper>
         <StyledCheckboxWrapper>
           <input type='checkbox' value='投げ' id='throwing' onChange={handleOnChangeMoveKinds} defaultChecked/>

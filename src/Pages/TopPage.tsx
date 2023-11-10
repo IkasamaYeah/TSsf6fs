@@ -2,20 +2,22 @@ import React from 'react';
 import styled from '@emotion/styled'
 import { Link } from 'react-router-dom';
 import Top from '../images/sf6-recommended-pcs-kv.png'
+import AboutSample from '../images/About_sample.jpg'
+import FramesVSSample from '../images/FramesVS_sample.jpg'
 
 const StyledTopPage = styled.div`
   padding-top: 80px;
-  padding-bottom: 2.5vw;
+  padding-bottom: 4vw;
   background-image: url(${Top});
   background-size: cover;
+  background-repeat: no-repeat;
   color: #ffffff;
   text-shadow: 3px 3px 10px #000000;
 `
 
 const StyledColumnWrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 18vw 3vw;
+  grid-template-columns: 1fr 1fr;
   column-gap: 0.8vw;
   row-gap: 2vw;
   margin-left:2vw;
@@ -36,12 +38,17 @@ const StyledTopH2 = styled.h2`
   padding-top: 1.5vw;
 `
 
-const StyledTopH3 = styled.h3`
+const StyledTopCharacters = styled.h3`
 position: relative;
 font-family: "Anton",sans-serif;
 letter-spacing: 0.3vw;
 margin-bottom: 1vw;
 font-size: 2vw;
+text-align: center;
+color: #fffb00;
+&:hover{
+  color: #afac01;
+}
 &::first-letter{
   font-size:120%;
 }
@@ -49,9 +56,34 @@ font-size: 2vw;
   content: "";
   position: absolute;
   bottom: -0.4vw;
-  left: 0px;
-  width: 2.5vw;
-  height: 0.3vw;
+  left: 36.5%;
+  width:2vw;
+  height: 0.1vw;
+  border-radius: 3px;
+  background: #ffffff;
+}
+`
+const StyledTopFramesVS = styled.h3`
+position: relative;
+font-family: "Anton",sans-serif;
+letter-spacing: 0.3vw;
+margin-bottom: 1vw;
+font-size: 2vw;
+text-align: center;
+color: #fffb00;
+&:hover{
+  color: #afac01;
+}
+&::first-letter{
+  font-size:120%;
+}
+&:after{
+  content: "";
+  position: absolute;
+  bottom: -0.4vw;
+  left: 38%;
+  width:2vw;
+  height: 0.1vw;
   border-radius: 3px;
   background: #ffffff;
 }
@@ -65,45 +97,26 @@ padding-top: 1.2vw;
 `
 
 const StyledColumnP = styled.p`
-line-height: 1.3em;
+line-height: 2vw;
 font-size: 1vw;
 font-family: "Noto Sans JP",sans-serif;
 margin-bottom: 1vw;
-
-`
-
-const StyledButton = styled.button`
-  position: absolute;
-  bottom: 0;
-  left: 36%;
-  width: 5vw;
-  height: 2vw;
-  font-size: 0.8vw;
-  font-family: "PT Sans",sans-serif;
-  font-weight: bold;
-  color: #000000;
-  background-color: #b9b9b9;
-  border:none;
-  border-bottom: 5px solid #999999;
-  &:hover{
-  margin-top: 3px;
-  color: #ffffff;
-  background: #424242;
-  border-bottom: 2px solid #6b6b6b;
+text-align: center;
+overflow: auto;
+@media(max-width:900px){
+  line-height: 3vw;
 }
 `
 
 const StyledSubheading = styled.div`
   position: relative;
-  padding: 2em;
+  padding: 2vw;
   background:rgba(0, 0, 0, 0.6);
-  width: 100%;
-  height: 100%;
   &::before,
   &:after{
     content: '';
-    width: 20px;
-    height: 30px;
+    width: 1vw;
+    height: 2vw;
     position: absolute;
     display: inline-block;
   }
@@ -121,6 +134,9 @@ const StyledSubheading = styled.div`
   }
 `
 
+const StyledSampleImage = styled.img`
+  vertical-align: bottom;
+`
 
 function TopPage() {
   return (
@@ -132,24 +148,18 @@ function TopPage() {
       </StyledSubheading>
       <StyledColumnWrapper>
         <StyledSubheading>
-          <StyledTopH3>Characters</StyledTopH3>
-          <StyledColumnP>キャラクターを一覧から選択し<br />通常技等のフレームデータを確認できます。<br />また、技名部分をクリックすることで<br />その技のヒットボックスの参照GIFを閲覧することも可能です。</StyledColumnP>
-          <Link to="/characters"><StyledButton>VIEW</StyledButton></Link>
+          <Link to="/characters">
+            <StyledTopCharacters>Characters</StyledTopCharacters>
+          </Link>
+          <StyledColumnP>キャラクターを一覧から選択し<br/>通常技等のフレームデータを確認できます。<br/>また、技名部分をクリックすることで<br/>その技のヒットボックスの参照GIFを閲覧することも可能です。</StyledColumnP>
+          <StyledSampleImage src={AboutSample} alt='AboutPage'/>
         </StyledSubheading>
         <StyledSubheading>
-          <StyledTopH3>FramesVS</StyledTopH3>
-          <StyledColumnP>防御側キャラクターと攻撃側キャラクターを選択し<br />攻撃側の行動(立ち弱P等)を選択することで<br />不利フレームから確定する技を一覧表示させることができます。</StyledColumnP>
-          <Link to="/framesvs"><StyledButton>VIEW</StyledButton></Link>
-        </StyledSubheading>
-        <StyledSubheading>
-          <StyledTopH3>Tier</StyledTopH3>
-          <StyledColumnP>最新の情報を参考にTierランキングを表示します。</StyledColumnP>
-          <Link to="/tier"><StyledButton>VIEW</StyledButton></Link>
-        </StyledSubheading>
-        <StyledSubheading>
-          <StyledTopH3>Tips</StyledTopH3>
-          <StyledColumnP>SF6をプレイするにあたって<br />便利な情報等を掲載していくページです。</StyledColumnP>
-          <Link to="/tips"><StyledButton>VIEW</StyledButton></Link>
+          <Link to="/framesvs">
+            <StyledTopFramesVS>FramesVS</StyledTopFramesVS>
+          </Link>
+          <StyledColumnP>防御側キャラクターと攻撃側キャラクターを選択し<br/>防御側の状況(ヒットやガード等)、<br/>攻撃側の行動(立ち弱P等)を選択することで<br/>不利フレームから確定する技を一覧表示させることができます。</StyledColumnP>
+          <StyledSampleImage src={FramesVSSample} alt='FramesVS'/>
         </StyledSubheading>
       </StyledColumnWrapper>
     </StyledTopPage>

@@ -176,8 +176,6 @@ export function Header () {
               <StyledHeaderUl>
                 <StyledHeaderLi key="Characters"><Link to="/characters">Characters</Link></StyledHeaderLi>
                 <StyledHeaderLi key="FramesVS"><Link to="/framesvs">FramesVS</Link></StyledHeaderLi>
-                <StyledHeaderLi key="Tier"><Link to="/tier">Tier</Link></StyledHeaderLi>
-                <StyledHeaderLi key="tips"><Link to="/tips">Tips</Link></StyledHeaderLi>
               </StyledHeaderUl>
             </nav>
         </StyledHeaderContent>

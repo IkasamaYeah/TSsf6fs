@@ -6,30 +6,76 @@ import Arrow from "../../images/yellow-arrow.png"
 
 const StyledCharacterPickWrapper = styled.div`
   padding-top: 2vw;
-  display: flex;
-  justify-content: space-around;
-  margin-left: 7vw;
-  margin-right: 7vw;
+  display: grid;
+  grid-template-columns: repeat( 3, 25vw);
+  align-items: center;
+  margin-left: 15vw;
+  margin-right: 15vw;
+  margin-bottom: 2vw;
 `
 
 const StyledSelectWrapper = styled.div`
+  position: relative;
+  background:rgba(0, 0, 0, 0.6);
+  padding: 1vw;
 	text-align: center;
   display: flex;
   flex-direction: column;
   width: 20vw;
+  justify-content: center;
+  &::before,
+  &:after{
+    content: '';
+    width: 1vw;
+    height: 2vw;
+    position: absolute;
+    display: inline-block;
+  }
+  &::before{
+    border-left: solid 1px #fffb0092;
+    border-top: solid 1px #fffb0092;
+    top: 0;
+    left: 0;
+  }
+  &::after{
+    border-right: solid 1px #fffb0092;
+    border-bottom: solid 1px #fffb0092;
+    bottom: 0;
+    right: 0;
+  }
 `
 
 const StyledArrowWrapper = styled.div`
 	text-align: center;
-  display: flex;
-  flex-direction: column;
   width: 20vw;
+  position: relative;
+  background:rgba(0, 0, 0, 0.6);
+  padding: 1vw;
+  &::before,
+  &:after{
+    content: '';
+    width: 1vw;
+    height: 2vw;
+    position: absolute;
+    display: inline-block;
+  }
+  &::before{
+    border-left: solid 1px #fffb0092;
+    border-top: solid 1px #fffb0092;
+    top: 0;
+    left: 0;
+  }
+  &::after{
+    border-right: solid 1px #fffb0092;
+    border-bottom: solid 1px #fffb0092;
+    bottom: 0;
+    right: 0;
+  }
 `
 
 const StyledSelectLabel = styled.label`
   color: rgba(255, 255, 255, 0.9);
 	font-size: 1vw;
-  font-family: "PT Sans",sans-serif;
   font-weight: bold;
   letter-spacing: 0.1vw;
 	pointer-events: none;
@@ -38,34 +84,31 @@ const StyledSelectLabel = styled.label`
 const StyledP1SelectLabel = styled.label`
   color: rgba(255, 255, 255, 0.9);
 	font-size: 1vw;
-  font-family: "PT Sans",sans-serif;
   font-weight: bold;
   letter-spacing: 0.1vw;
 	pointer-events: none;
-  margin-left: 12vw;
+  text-align:center;
 `
 
 const StyledP2SelectLabel = styled.label`
   color: rgba(255, 255, 255, 0.9);
 	font-size: 1vw;
-  font-family: "PT Sans",sans-serif;
   font-weight: bold;
   letter-spacing: 0.1vw;
 	pointer-events: none;
-  margin-right: 12vw;
+  text-align:center;
 `
 
 const StyledP1Select = styled.select`
+  font-family: 'M PLUS 1p', sans-serif;
 	background-color: rgba( 0, 102, 153,0.7);
   color: white;
 	width: 100%;
-	padding: 0.5vw 0.5vw 0.5vw 0;
-  font-family: 'PT Sans', sans-serif;
+	padding: 0.5vw 0 0.5vw 0;
 	font-size: 2vw;
   font-weight: bold;
   letter-spacing: 0.2vw;
   text-align: center;
-	border-radius: 0;
 	border: none;
   border-radius: 1vw;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -78,15 +121,15 @@ const StyledP1Select = styled.select`
 `
 
 const StyledP2Select = styled.select`
+  font-family: 'M PLUS 1p', sans-serif;
 	background-color: rgba( 215, 29, 59,0.7);
   color: white;
 	width: 100%;
-	padding: 0.5vw 0.5vw 0.5vw 0;
+	padding: 0.5vw 0 0.5vw 0;
   font-size: 2vw;
   font-weight: bold;
   letter-spacing: 0.2vw;
   text-align: center;
-	border-radius: 0;
 	border: none;
   border-radius: 1vw;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -100,31 +143,32 @@ const StyledP2Select = styled.select`
 
 const StyledArrow = css`
   display: block;
-  width: 50%;
+  width: 30%;
   margin: auto;
-  padding-top: 0.6vw;
   cursor: pointer;
 `
 
 const ReversedArrow = css`
-  rotate: 180deg;
+ transform: scale(-1, 1);
 `
 
 type Props= {
-  p1CharacterHandler: (e:React.ChangeEvent<HTMLSelectElement>) => void
-  p2CharacterHandler: (e:React.ChangeEvent<HTMLSelectElement>) => void
+  CharacterHandler:{
+    p1CharacterHandler: (e:React.ChangeEvent<HTMLSelectElement>) => void
+    p2CharacterHandler: (e:React.ChangeEvent<HTMLSelectElement>) => void
+  }
   reverseAttacker:boolean
-  toggleReverse: (e:React.MouseEvent<HTMLImageElement>) => void
+  reverseAttackerHandler: (e:React.MouseEvent<HTMLImageElement>) => void
 }
 
-export function ChooseCondition ({ p1CharacterHandler , p2CharacterHandler , reverseAttacker , toggleReverse}:Props) {
+export function ChooseCondition ({ CharacterHandler , reverseAttacker , reverseAttackerHandler}:Props) {
   return (<>
         <StyledCharacterPickWrapper>
           <StyledSelectWrapper>
             <StyledP1SelectLabel>
-              Pick 1P Character
+              1Pキャラを選択
             </StyledP1SelectLabel>
-            <StyledP1Select defaultValue={"Ryu"} onChange={p1CharacterHandler}>
+            <StyledP1Select defaultValue={"Ryu"} onChange={CharacterHandler.p1CharacterHandler}>
               <option value="Rashid">Rashid</option>
               <option value="Cammy">Cammy</option>
               <option value="Lily">Lily</option>
@@ -147,14 +191,14 @@ export function ChooseCondition ({ p1CharacterHandler , p2CharacterHandler , rev
             </StyledP1Select>
           </StyledSelectWrapper>
           <StyledArrowWrapper>
-            <StyledSelectLabel>Which one is attacking?</StyledSelectLabel>
-            <img src={Arrow} alt="Arrow" onClick={toggleReverse} css={[StyledArrow , reverseAttacker&&ReversedArrow]}/>
+            <StyledSelectLabel>攻撃側を選択してください</StyledSelectLabel>
+            <img src={Arrow} alt="Arrow" onClick={reverseAttackerHandler} css={[StyledArrow , reverseAttacker&&ReversedArrow]}/>
           </StyledArrowWrapper>
           <StyledSelectWrapper>
             <StyledP2SelectLabel>
-              Pick 2P Character
+              2Pキャラを選択
             </StyledP2SelectLabel>
-            <StyledP2Select defaultValue={"Ryu"} onChange={p2CharacterHandler}>
+            <StyledP2Select defaultValue={"Ryu"} onChange={CharacterHandler.p2CharacterHandler}>
               <option value="Rashid">Rashid</option>
               <option value="Cammy">Cammy</option>
               <option value="Lily">Lily</option>
